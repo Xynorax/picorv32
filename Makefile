@@ -12,10 +12,10 @@ IVERILOG = iverilog$(ICARUS_SUFFIX)
 VVP = vvp$(ICARUS_SUFFIX)
 
 TEST_OBJS = $(addsuffix .o,$(basename $(wildcard tests/*.S)))
-FIRMWARE_OBJS = firmware/start.o firmware/irq.o firmware/print.o firmware/hello.o firmware/sieve.o firmware/multest.o firmware/stats.o
+FIRMWARE_OBJS = firmware/start.o firmware/irq.o firmware/print.o firmware/hello.o firmware/sieve.o firmware/multest.o firmware/stats.o firmware/ai_model.o
 GCC_WARNS  = -Werror -Wall -Wextra -Wshadow -Wundef -Wpointer-arith -Wcast-qual -Wcast-align -Wwrite-strings
 GCC_WARNS += -Wredundant-decls -Wstrict-prototypes -Wmissing-prototypes -pedantic # -Wconversion
-TOOLCHAIN_PREFIX = $(RISCV_GNU_TOOLCHAIN_INSTALL_PREFIX)i/bin/riscv32-unknown-elf-
+TOOLCHAIN_PREFIX = riscv32-unknown-elf-
 COMPRESSED_ISA = C
 
 # Add things like "export http_proxy=... https_proxy=..." here
@@ -54,31 +54,33 @@ test_synth: testbench_synth.vvp firmware/firmware.hex
 test_verilator: testbench_verilator firmware/firmware.hex
 	./testbench_verilator
 
-testbench.vvp: testbench.v picorv32.v
+SRC_DEPS = $(filter-out src/taxi_axil_axi_adapter.v, $(wildcard src/*.v) $(wildcard src/*.sv))
+
+testbench.vvp: testbench.v picorv32.v $(SRC_DEPS)
 	$(IVERILOG) -o $@ $(subst C,-DCOMPRESSED_ISA,$(COMPRESSED_ISA)) $^
 	chmod -x $@
 
-testbench_rvf.vvp: testbench.v picorv32.v rvfimon.v
+testbench_rvf.vvp: testbench.v picorv32.v rvfimon.v $(SRC_DEPS)
 	$(IVERILOG) -o $@ -D RISCV_FORMAL $(subst C,-DCOMPRESSED_ISA,$(COMPRESSED_ISA)) $^
 	chmod -x $@
 
-testbench_wb.vvp: testbench_wb.v picorv32.v
+testbench_wb.vvp: testbench_wb.v picorv32.v $(SRC_DEPS)
 	$(IVERILOG) -o $@ $(subst C,-DCOMPRESSED_ISA,$(COMPRESSED_ISA)) $^
 	chmod -x $@
 
-testbench_ez.vvp: testbench_ez.v picorv32.v
+testbench_ez.vvp: testbench_ez.v picorv32.v $(SRC_DEPS)
 	$(IVERILOG) -o $@ $(subst C,-DCOMPRESSED_ISA,$(COMPRESSED_ISA)) $^
 	chmod -x $@
 
-testbench_sp.vvp: testbench.v picorv32.v
+testbench_sp.vvp: testbench.v picorv32.v $(SRC_DEPS)
 	$(IVERILOG) -o $@ $(subst C,-DCOMPRESSED_ISA,$(COMPRESSED_ISA)) -DSP_TEST $^
 	chmod -x $@
 
-testbench_synth.vvp: testbench.v synth.v
+testbench_synth.vvp: testbench.v synth.v $(SRC_DEPS)
 	$(IVERILOG) -o $@ -DSYNTH_TEST $^
 	chmod -x $@
 
-testbench_verilator: testbench.v picorv32.v testbench.cc
+testbench_verilator: testbench.v picorv32.v testbench.cc $(SRC_DEPS)
 	$(VERILATOR) --cc --exe -Wno-lint -trace --top-module picorv32_wrapper testbench.v picorv32.v testbench.cc \
 			$(subst C,-DCOMPRESSED_ISA,$(COMPRESSED_ISA)) --Mdir testbench_verilator_dir
 	$(MAKE) -C testbench_verilator_dir -f Vpicorv32_wrapper.mk
@@ -116,7 +118,7 @@ firmware/start.o: firmware/start.S
 	$(TOOLCHAIN_PREFIX)gcc -c -mabi=ilp32 -march=rv32im$(subst C,c,$(COMPRESSED_ISA)) -o $@ $<
 
 firmware/%.o: firmware/%.c
-	$(TOOLCHAIN_PREFIX)gcc -c -mabi=ilp32 -march=rv32i$(subst C,c,$(COMPRESSED_ISA)) -Os --std=c99 $(GCC_WARNS) -ffreestanding -nostdlib -o $@ $<
+	$(TOOLCHAIN_PREFIX)gcc -c -mabi=ilp32 -march=rv32im$(subst C,c,$(COMPRESSED_ISA)) -Os --std=c99 $(GCC_WARNS) -ffreestanding -nostdlib -o $@ $<
 
 tests/%.o: tests/%.S tests/riscv_test.h tests/test_macros.h
 	$(TOOLCHAIN_PREFIX)gcc -c -mabi=ilp32 -march=rv32im -o $@ -DTEST_FUNC_NAME=$(notdir $(basename $<)) \

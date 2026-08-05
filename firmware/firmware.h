@@ -40,4 +40,7 @@ void multest(void);
 // stats.c
 void stats(void);
 
+// ai_model.c
+void ai_model(void);
+
 #endif

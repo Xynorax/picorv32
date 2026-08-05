@@ -6,11 +6,12 @@
 // means.
 
 #define ENABLE_QREGS
-#define ENABLE_HELLO
-#define ENABLE_RVTST
-#define ENABLE_SIEVE
-#define ENABLE_MULTST
-#define ENABLE_STATS
+//#define ENABLE_HELLO
+//#define ENABLE_RVTST
+//#define ENABLE_SIEVE
+//#define ENABLE_MULTST
+//#define ENABLE_STATS
+#define ENABLE_AIMODEL
 
 #ifndef ENABLE_QREGS
 #  undef ENABLE_RVTST
@@ -37,6 +38,7 @@
 	.global hard_rem
 	.global hard_remu
 	.global stats
+	.global ai_model
 
 reset_vec:
 	// no more than 16 bytes here !
@@ -375,13 +377,18 @@ start:
 	addi x29, zero, 0
 	addi x30, zero, 0
 	addi x31, zero, 0
-
+lui sp,(128*1024)>>12
 #ifdef ENABLE_HELLO
 	/* set stack pointer */
-	lui sp,(128*1024)>>12
+	
 
 	/* call hello C code */
 	jal ra,hello
+#endif
+
+#ifdef ENABLE_AIMODEL
+	/* set stack pointer */
+	jal ra,ai_model
 #endif
 
 	/* running tests from riscv-tests */
