@@ -35,3 +35,6 @@
 /synth.log
 /synth.v
 .*.swp
+picorv32_vivado/vivado_pid10468.str
+picorv32_vivado/vivado.jou
+picorv32_vivado/vivado.log

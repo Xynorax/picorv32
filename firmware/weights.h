@@ -7,7 +7,7 @@
 #define NUM_TILES 49
 #define TILE_SIZE 16
 
-int8_t input_lines[NUM_TILES][TILE_SIZE] = {
+int8_t activations[NUM_TILES][TILE_SIZE] = {
     {   0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
     {   0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},
     {   0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0},

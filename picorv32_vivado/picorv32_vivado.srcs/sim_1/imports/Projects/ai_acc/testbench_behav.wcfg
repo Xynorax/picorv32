@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="testbench" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="10,435,197.083 ns"></ZoomStartTime>
+      <ZoomEndTime time="10,435,320.584 ns"></ZoomEndTime>
+      <Cursor1Time time="10,435,300.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="340"></NameColumnWidth>
+      <ValueColumnWidth column_width="150"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="3" />
+   <wvobject fp_name="group96" type="group">
+      <obj_property name="label">pe_array_controller</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/resetn" type="logic">
+         <obj_property name="ElementShortName">resetn</obj_property>
+         <obj_property name="ObjectShortName">resetn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/ctrl_reg" type="array">
+         <obj_property name="ElementShortName">ctrl_reg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ctrl_reg[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/load_weight" type="logic">
+         <obj_property name="ElementShortName">load_weight</obj_property>
+         <obj_property name="ObjectShortName">load_weight</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/weight_in" type="array">
+         <obj_property name="ElementShortName">weight_in[7:0]</obj_property>
+         <obj_property name="ObjectShortName">weight_in[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/act_in_flat" type="array">
+         <obj_property name="ElementShortName">act_in_flat[127:0]</obj_property>
+         <obj_property name="ObjectShortName">act_in_flat[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/psum_out_flat" type="array">
+         <obj_property name="ElementShortName">psum_out_flat[511:0]</obj_property>
+         <obj_property name="ObjectShortName">psum_out_flat[511:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/enb" type="logic">
+         <obj_property name="ElementShortName">enb</obj_property>
+         <obj_property name="ObjectShortName">enb</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/web" type="logic">
+         <obj_property name="ElementShortName">web</obj_property>
+         <obj_property name="ObjectShortName">web</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/addrb" type="array">
+         <obj_property name="ElementShortName">addrb[12:0]</obj_property>
+         <obj_property name="ObjectShortName">addrb[12:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/dinb" type="array">
+         <obj_property name="ElementShortName">dinb[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dinb[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/doutb" type="array">
+         <obj_property name="ElementShortName">doutb[31:0]</obj_property>
+         <obj_property name="ObjectShortName">doutb[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/read_cntr" type="array">
+         <obj_property name="ElementShortName">read_cntr[2:0]</obj_property>
+         <obj_property name="ObjectShortName">read_cntr[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/current_address" type="array">
+         <obj_property name="ElementShortName">current_address[12:0]</obj_property>
+         <obj_property name="ObjectShortName">current_address[12:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/current_act_address" type="array">
+         <obj_property name="ElementShortName">current_act_address[12:0]</obj_property>
+         <obj_property name="ObjectShortName">current_act_address[12:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/WORDS_TO_LOAD" type="array">
+         <obj_property name="ElementShortName">WORDS_TO_LOAD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">WORDS_TO_LOAD[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/shift_bytes_cntr" type="array">
+         <obj_property name="ElementShortName">shift_bytes_cntr[1:0]</obj_property>
+         <obj_property name="ObjectShortName">shift_bytes_cntr[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/ROWS" type="array">
+         <obj_property name="ElementShortName">ROWS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ROWS[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/COLS" type="array">
+         <obj_property name="ElementShortName">COLS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">COLS[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/DATA_W" type="array">
+         <obj_property name="ElementShortName">DATA_W[31:0]</obj_property>
+         <obj_property name="ObjectShortName">DATA_W[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/ACC_W" type="array">
+         <obj_property name="ElementShortName">ACC_W[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ACC_W[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/WEIGHTS_START_ADDR" type="array">
+         <obj_property name="ElementShortName">WEIGHTS_START_ADDR[31:0]</obj_property>
+         <obj_property name="ObjectShortName">WEIGHTS_START_ADDR[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/ACTS_START_ADDR" type="array">
+         <obj_property name="ElementShortName">ACTS_START_ADDR[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ACTS_START_ADDR[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/COMPUTE" type="array">
+         <obj_property name="ElementShortName">COMPUTE[3:0]</obj_property>
+         <obj_property name="ObjectShortName">COMPUTE[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/ACT_READ" type="array">
+         <obj_property name="ElementShortName">ACT_READ[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ACT_READ[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group109" type="group">
+      <obj_property name="label">global buffer</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/testbench/top/accel/global_buffer/clka" type="logic">
+         <obj_property name="ElementShortName">clka</obj_property>
+         <obj_property name="ObjectShortName">clka</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/global_buffer/ena" type="logic">
+         <obj_property name="ElementShortName">ena</obj_property>
+         <obj_property name="ObjectShortName">ena</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/global_buffer/wea" type="array">
+         <obj_property name="ElementShortName">wea[0:0]</obj_property>
+         <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/global_buffer/addra" type="array">
+         <obj_property name="ElementShortName">addra[12:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[12:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/global_buffer/dina" type="array">
+         <obj_property name="ElementShortName">dina[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/global_buffer/douta" type="array">
+         <obj_property name="ElementShortName">douta[31:0]</obj_property>
+         <obj_property name="ObjectShortName">douta[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/global_buffer/clkb" type="logic">
+         <obj_property name="ElementShortName">clkb</obj_property>
+         <obj_property name="ObjectShortName">clkb</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/global_buffer/enb" type="logic">
+         <obj_property name="ElementShortName">enb</obj_property>
+         <obj_property name="ObjectShortName">enb</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/global_buffer/web" type="array">
+         <obj_property name="ElementShortName">web[0:0]</obj_property>
+         <obj_property name="ObjectShortName">web[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/global_buffer/addrb" type="array">
+         <obj_property name="ElementShortName">addrb[12:0]</obj_property>
+         <obj_property name="ObjectShortName">addrb[12:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/global_buffer/dinb" type="array">
+         <obj_property name="ElementShortName">dinb[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dinb[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/global_buffer/doutb" type="array">
+         <obj_property name="ElementShortName">doutb[31:0]</obj_property>
+         <obj_property name="ObjectShortName">doutb[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group162" type="group">
+      <obj_property name="label">Accel</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/testbench/top/accel/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/resetn" type="logic">
+         <obj_property name="ElementShortName">resetn</obj_property>
+         <obj_property name="ObjectShortName">resetn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_awvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_awvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_awready" type="logic">
+         <obj_property name="ElementShortName">s_axi_awready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_awaddr" type="array">
+         <obj_property name="ElementShortName">s_axi_awaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awaddr[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_wvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_wvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_wready" type="logic">
+         <obj_property name="ElementShortName">s_axi_wready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_wdata" type="array">
+         <obj_property name="ElementShortName">s_axi_wdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_wstrb" type="array">
+         <obj_property name="ElementShortName">s_axi_wstrb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wstrb[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_bvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_bvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_bvalid</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_bready" type="logic">
+         <obj_property name="ElementShortName">s_axi_bready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_bready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_arvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_arvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_arready" type="logic">
+         <obj_property name="ElementShortName">s_axi_arready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_araddr" type="array">
+         <obj_property name="ElementShortName">s_axi_araddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_araddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_rvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_rvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_rready" type="logic">
+         <obj_property name="ElementShortName">s_axi_rready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_rdata" type="array">
+         <obj_property name="ElementShortName">s_axi_rdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/enb" type="logic">
+         <obj_property name="ElementShortName">enb</obj_property>
+         <obj_property name="ObjectShortName">enb</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/ena" type="logic">
+         <obj_property name="ElementShortName">ena</obj_property>
+         <obj_property name="ObjectShortName">ena</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/ena_write" type="logic">
+         <obj_property name="ElementShortName">ena_write</obj_property>
+         <obj_property name="ObjectShortName">ena_write</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/ena_read" type="logic">
+         <obj_property name="ElementShortName">ena_read</obj_property>
+         <obj_property name="ObjectShortName">ena_read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/wea" type="array">
+         <obj_property name="ElementShortName">wea[0:0]</obj_property>
+         <obj_property name="ObjectShortName">wea[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/web" type="array">
+         <obj_property name="ElementShortName">web[0:0]</obj_property>
+         <obj_property name="ObjectShortName">web[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/addra" type="array">
+         <obj_property name="ElementShortName">addra[12:0]</obj_property>
+         <obj_property name="ObjectShortName">addra[12:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/addrb" type="array">
+         <obj_property name="ElementShortName">addrb[12:0]</obj_property>
+         <obj_property name="ObjectShortName">addrb[12:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/dina" type="array">
+         <obj_property name="ElementShortName">dina[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dina[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/dinb" type="array">
+         <obj_property name="ElementShortName">dinb[31:0]</obj_property>
+         <obj_property name="ObjectShortName">dinb[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/douta" type="array">
+         <obj_property name="ElementShortName">douta[31:0]</obj_property>
+         <obj_property name="ObjectShortName">douta[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/doutb" type="array">
+         <obj_property name="ElementShortName">doutb[31:0]</obj_property>
+         <obj_property name="ObjectShortName">doutb[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/ctrl_reg" type="array">
+         <obj_property name="ElementShortName">ctrl_reg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ctrl_reg[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/load_weight" type="logic">
+         <obj_property name="ElementShortName">load_weight</obj_property>
+         <obj_property name="ObjectShortName">load_weight</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/weight_in" type="array">
+         <obj_property name="ElementShortName">weight_in[7:0]</obj_property>
+         <obj_property name="ObjectShortName">weight_in[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/act_in_flat" type="array">
+         <obj_property name="ElementShortName">act_in_flat[127:0]</obj_property>
+         <obj_property name="ObjectShortName">act_in_flat[127:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/psum_out_flat" type="array">
+         <obj_property name="ElementShortName">psum_out_flat[511:0]</obj_property>
+         <obj_property name="ObjectShortName">psum_out_flat[511:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/status_reg" type="array">
+         <obj_property name="ElementShortName">status_reg[31:0]</obj_property>
+         <obj_property name="ObjectShortName">status_reg[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/waddr" type="array">
+         <obj_property name="ElementShortName">waddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">waddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/raddr" type="array">
+         <obj_property name="ElementShortName">raddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">raddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/current_state" type="array">
+         <obj_property name="ElementShortName">current_state[1:0]</obj_property>
+         <obj_property name="ObjectShortName">current_state[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/ROWS" type="array">
+         <obj_property name="ElementShortName">ROWS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ROWS[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/COLS" type="array">
+         <obj_property name="ElementShortName">COLS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">COLS[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/DATA_W" type="array">
+         <obj_property name="ElementShortName">DATA_W[31:0]</obj_property>
+         <obj_property name="ObjectShortName">DATA_W[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/ACC_W" type="array">
+         <obj_property name="ElementShortName">ACC_W[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ACC_W[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/IDLE" type="array">
+         <obj_property name="ElementShortName">IDLE[1:0]</obj_property>
+         <obj_property name="ObjectShortName">IDLE[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/WAIT_READ_1" type="array">
+         <obj_property name="ElementShortName">WAIT_READ_1[1:0]</obj_property>
+         <obj_property name="ObjectShortName">WAIT_READ_1[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/WAIT_READ_2" type="array">
+         <obj_property name="ElementShortName">WAIT_READ_2[1:0]</obj_property>
+         <obj_property name="ObjectShortName">WAIT_READ_2[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/WAIT_READ_3" type="array">
+         <obj_property name="ElementShortName">WAIT_READ_3[1:0]</obj_property>
+         <obj_property name="ObjectShortName">WAIT_READ_3[1:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

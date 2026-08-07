@@ -1,0 +1,31 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Youssef/Projects/ai_acc/ai_acc.gen/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Youssef/Projects/picorv32/src/ai_acc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ai_accel_axi
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Youssef/Projects/picorv32/src/arbiter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module arbiter
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Youssef/Projects/picorv32/src/axi_interconnect.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_interconnect
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Youssef/Projects/picorv32/src/axi_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi4_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Youssef/Projects/ai_acc/ai_acc.srcs/sources_1/new/delay_chain.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module delay_chain
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Youssef/Projects/ai_acc/ai_acc.srcs/sources_1/new/mac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mac
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Youssef/Projects/ai_acc/ai_acc.srcs/sources_1/new/pe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module processing_element
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Youssef/Projects/ai_acc/ai_acc.srcs/sim_1/new/pe_array.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pe_array
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Youssef/Projects/picorv32/src/pe_array_controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pe_array_controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Youssef/Projects/picorv32/picorv32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module picorv32
+INFO: [VRFC 10-311] analyzing module picorv32_regs
+INFO: [VRFC 10-311] analyzing module picorv32_pcpi_mul
+INFO: [VRFC 10-311] analyzing module picorv32_pcpi_fast_mul
+INFO: [VRFC 10-311] analyzing module picorv32_pcpi_div
+INFO: [VRFC 10-311] analyzing module picorv32_axi
+INFO: [VRFC 10-311] analyzing module picorv32_axi_adapter
+INFO: [VRFC 10-311] analyzing module picorv32_wb
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Youssef/Projects/picorv32/src/priority_encoder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module priority_encoder
