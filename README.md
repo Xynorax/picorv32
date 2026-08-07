@@ -16,6 +16,9 @@ Software based time taken: 2,472,926 cycles
 Accelerator based output: 0 0 0 0 0 0 0 34 7 5 2 1 0 3 0 0 
 Accelerator based time taken: 1,497,878 cycles
 
+Registers: ctrl=0x30000000, status=0x30000004 (bit0=done), weights=0x30000008, activations=0x30004000, results=0x30000080.
+Global buffer and registers are 32 bit wide. Activations and weights are 8 bit quantized.
+
 Possible improvements:
 1. Double weights buffer. Allows streaming of the next set of weights during current computation.
 2. Addition of more than one accelerator and parallelizing computation.
