@@ -11,12 +11,17 @@ Software based uses multiplication instructions. Hardware based loads the weight
 
 Weights are streamed into the processing elements (PE) 16x16 array. Streaming takes 256(16x16) cycles + 3 cycles per read (BRAM latency).
 
-Software based output: 0 0 0 0 0 0 0 34 7 5 2 1 0 3 0 0 
-Software based time taken: 2,472,926 cycles
-Accelerator based output: 0 0 0 0 0 0 0 34 7 5 2 1 0 3 0 0 
-Accelerator based time taken: 1,497,878 cycles
+Software based output: 0 0 0 0 0 0 0 34 7 5 2 1 0 3 0 0  
 
-Registers: ctrl=0x30000000, status=0x30000004 (bit0=done), weights=0x30000008, activations=0x30004000, results=0x30000080.
+Software based time taken: 2,472,926 cycles  
+
+Accelerator based output: 0 0 0 0 0 0 0 34 7 5 2 1 0 3 0 0   
+
+Accelerator based time taken: 1,497,878 cycles  
+
+
+Registers: ctrl=0x30000000, status=0x30000004 (bit0=done), weights=0x30000008, activations=0x30004000, results=0x30000080.  
+
 Global buffer and registers are 32 bit wide. Activations and weights are 8 bit quantized.
 
 Possible improvements:
