@@ -1,7 +1,7 @@
 #### AI accelerator 
 
 Architecture:
-![App Screenshot](arch.drawio.png)
+![App Screenshot](arch.drawio.svg)
 
 Tested using weights from MNIST digit recognition model extracted from python model. 
 1 layer with 784 inputs and 16 outputs used.
