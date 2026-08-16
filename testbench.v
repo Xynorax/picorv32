@@ -144,7 +144,12 @@ module picorv32_wrapper #(
 	wire        s0_bvalid,  s0_bready;
 	wire        s0_arvalid, s0_arready; wire [31:0] s0_araddr;
 	wire        s0_rvalid,  s0_rready;  wire [31:0] s0_rdata;
-
+	wire [3:0]  s0_awid, s0_bid, s0_arid, s0_rid;
+	wire [7:0]  s0_awlen, s0_arlen;
+	wire [2:0]  s0_awsize, s0_arsize;
+	wire [1:0]  s0_awburst, s0_arburst;
+	wire 		s0_wlast, s0_rlast;
+	wire 		s0_bresp, s0_rresp;
 	wire        s1_awvalid, s1_awready; wire [31:0] s1_awaddr;
 	wire        s1_wvalid,  s1_wready;  wire [31:0] s1_wdata; wire [3:0] s1_wstrb;
 	wire        s1_bvalid,  s1_bready;
@@ -229,7 +234,10 @@ module picorv32_wrapper #(
 	wire [63:0] int_m_awaddr, int_m_wdata, int_m_araddr, int_m_rdata;
 	wire [ 7:0] int_m_wstrb;
 	wire [ 5:0] int_m_awprot, int_m_arprot;
-
+	wire [7:0] int_m_awid, int_m_bid, int_m_arid, int_m_rid;
+	wire [15:0] int_m_awlen, int_m_arlen;
+	wire [5:0] int_m_awsize, int_m_arsize;
+	wire [3:0] int_m_awburst, int_m_arburst;
 	// port 0 -> accel (s1), port 1 -> memory (s0)
 	assign int_m_awready[0] = s1_awready;
 	assign int_m_awready[1] = s0_awready;
@@ -243,6 +251,16 @@ module picorv32_wrapper #(
 	assign int_m_rvalid[1]  = s0_rvalid;
 	assign int_m_rdata[0*32 +: 32] = s1_rdata;
 	assign int_m_rdata[1*32 +: 32] = s0_rdata;
+	assign s0_awid = int_m_awid[1*4 +: 4];
+	assign int_m_bid[1*4 +: 4] = s0_bid;
+	assign s0_arid = int_m_arid[1*4 +: 4];
+	assign int_m_rid[1*4 +: 4] = s0_rid;
+	assign s0_awlen = int_m_awlen[1*8 +: 8];
+	assign s0_arlen = int_m_arlen[1*8 +: 8];
+	assign s0_awsize = int_m_awsize[1*3 +: 3];
+	assign s0_arsize = int_m_arsize[1*3 +: 3];
+	assign s0_awburst = int_m_awburst[1*2 +: 2];
+	assign s0_arburst = int_m_arburst[1*2 +: 2];
 
 	assign s1_awvalid = int_m_awvalid[0];
 	assign s0_awvalid = int_m_awvalid[1];
@@ -333,48 +351,48 @@ module picorv32_wrapper #(
 		.s_axi_rvalid (int_rvalid),
 		.s_axi_rready (int_rready),
 
-		.m_axi_awid    (),
+		.m_axi_awid    (int_m_awid),
 		.m_axi_awaddr  (int_m_awaddr),
-		.m_axi_awlen   (),
-		.m_axi_awsize  (),
-		.m_axi_awburst (),
-		.m_axi_awlock  (),
-		.m_axi_awcache (),
+		.m_axi_awlen   (int_m_awlen),
+		.m_axi_awsize  (int_m_awsize),
+		.m_axi_awburst (int_m_awburst),
+		.m_axi_awlock  (int_m_awlock),
+		.m_axi_awcache (int_m_awcache),
 		.m_axi_awprot  (int_m_awprot),
-		.m_axi_awqos   (),
-		.m_axi_awregion(),
-		.m_axi_awuser  (),
+		.m_axi_awqos   (int_m_awqos),
+		.m_axi_awregion(int_m_awregion),
+		.m_axi_awuser  (int_m_awuser),
 		.m_axi_awvalid (int_m_awvalid),
 		.m_axi_awready (int_m_awready),
 
 		.m_axi_wdata(int_m_wdata),
 		.m_axi_wstrb(int_m_wstrb),
-		.m_axi_wlast(),
-		.m_axi_wuser(),
+		.m_axi_wlast(int_m_wlast),
+		.m_axi_wuser(int_m_wuser),
 		.m_axi_wvalid(int_m_wvalid),
 		.m_axi_wready(int_m_wready),
 
-		.m_axi_bid   ({2{1'b0}}),
-		.m_axi_bresp ({2{2'b00}}),
+		.m_axi_bid   (int_m_bid),
+		.m_axi_bresp (int_m_bresp),
 		.m_axi_buser ({2{1'b0}}),
 		.m_axi_bvalid(int_m_bvalid),
 		.m_axi_bready(int_m_bready),
 
-		.m_axi_arid    (),
+		.m_axi_arid    (int_m_arid),
 		.m_axi_araddr  (int_m_araddr),
-		.m_axi_arlen   (),
-		.m_axi_arsize  (),
-		.m_axi_arburst (),
-		.m_axi_arlock  (),
-		.m_axi_arcache (),
+		.m_axi_arlen   (int_m_arlen),
+		.m_axi_arsize  (int_m_arsize),
+		.m_axi_arburst (int_m_arburst),
+		.m_axi_arlock  (int_m_arlock),
+		.m_axi_arcache (int_m_arcache),
 		.m_axi_arprot  (int_m_arprot),
-		.m_axi_arqos   (),
-		.m_axi_arregion(),
-		.m_axi_aruser  (),
+		.m_axi_arqos   (int_m_arqos),
+		.m_axi_arregion(int_m_arregion),
+		.m_axi_aruser  (int_m_aruser),
 		.m_axi_arvalid (int_m_arvalid),
 		.m_axi_arready (int_m_arready),
 
-		.m_axi_rid    ({2{1'b0}}),
+		.m_axi_rid    (int_m_rid),
 		.m_axi_rdata  (int_m_rdata),
 		.m_axi_rresp  ({2{2'b00}}),
 		.m_axi_rlast  ({2{1'b1}}),
@@ -392,35 +410,42 @@ module picorv32_wrapper #(
 		.s_axi_rvalid(s1_rvalid),   .s_axi_rready(s1_rready),   .s_axi_rdata(s1_rdata)
 	);
 
-	axi4_memory #(
-    .AXI_TEST (AXI_TEST),
-    .VERBOSE  (VERBOSE)
-	) mem (
-		.clk             (clk       ),
-		.mem_axi_awvalid (s0_awvalid),
-		.mem_axi_awready (s0_awready),
-		.mem_axi_awaddr  (s0_awaddr ),
-		.mem_axi_awprot  (           ),   // router doesn't pass prot through yet — see note below
-
-		.mem_axi_wvalid  (s0_wvalid ),
-		.mem_axi_wready  (s0_wready ),
-		.mem_axi_wdata   (s0_wdata  ),
-		.mem_axi_wstrb   (s0_wstrb  ),
-
-		.mem_axi_bvalid  (s0_bvalid ),
-		.mem_axi_bready  (s0_bready ),
-
-		.mem_axi_arvalid (s0_arvalid),
-		.mem_axi_arready (s0_arready),
-		.mem_axi_araddr  (s0_araddr ),
-		.mem_axi_arprot  (           ),   // router doesn't pass prot through yet — see note below
-
-		.mem_axi_rvalid  (s0_rvalid ),
-		.mem_axi_rready  (s0_rready ),
-		.mem_axi_rdata   (s0_rdata  ),
-
-		.tests_passed    (tests_passed)
-	);
+	// Replace axi4_mem with blk_mem_gen_1
+	blk_mem_gen_1 flash_mem (
+		.rsta_busy(),          // output wire rsta_busy
+		.rstb_busy(),          // output wire rstb_busy
+		.s_aclk(clk),                // input wire s_aclk
+		.s_aresetn(resetn),          // input wire s_aresetn
+		.s_axi_awid(s0_awid),        // input wire [3 : 0] s_axi_awid
+		.s_axi_awaddr(s0_awaddr),    // input wire [31 : 0] s_axi_awaddr
+		.s_axi_awlen(s0_awlen),      // input wire [7 : 0] s_axi_awlen
+		.s_axi_awsize(s0_awsize),    // input wire [2 : 0] s_axi_awsize
+		.s_axi_awburst(s0_awburst),  // input wire [1 : 0] s_axi_awburst
+		.s_axi_awvalid(s0_awvalid),  // input wire s_axi_awvalid
+		.s_axi_awready(s0_awready),  // output wire s_axi_awready
+		.s_axi_wdata(s0_wdata),      // input wire [31 : 0] s_axi_wdata
+		.s_axi_wstrb(s0_wstrb),      // input wire [3 : 0] s_axi_wstrb
+		.s_axi_wlast(s0_wlast),      // input wire s_axi_wlast
+		.s_axi_wvalid(s0_wvalid),    // input wire s_axi_wvalid
+		.s_axi_wready(s0_wready),    // output wire s_axi_wready
+		.s_axi_bid(s0_bid),          // output wire [3 : 0] s_axi_bid
+		.s_axi_bresp(s0_bresp),      // output wire [1 : 0] s_axi_bresp
+		.s_axi_bvalid(s0_bvalid),    // output wire s_axi_bvalid
+		.s_axi_bready(s0_bready),    // input wire s_axi_bready
+		.s_axi_arid(s0_arid),        // input wire [3 : 0] s_axi_arid
+		.s_axi_araddr(s0_araddr),    // input wire [31 : 0] s_axi_araddr
+		.s_axi_arlen(s0_arlen),      // input wire [7 : 0] s_axi_arlen
+		.s_axi_arsize(s0_arsize),    // input wire [2 : 0] s_axi_arsize
+		.s_axi_arburst(s0_arburst),  // input wire [1 : 0] s_axi_arburst
+		.s_axi_arvalid(s0_arvalid),  // input wire s_axi_arvalid
+		.s_axi_arready(s0_arready),  // output wire s_axi_arready
+		.s_axi_rid(s0_rid),          // output wire [3 : 0] s_axi_rid
+		.s_axi_rdata(s0_rdata),      // output wire [31 : 0] s_axi_rdata
+		.s_axi_rresp(s0_rresp),      // output wire [1 : 0] s_axi_rresp
+		.s_axi_rlast(s0_rlast),      // output wire s_axi_rlast
+		.s_axi_rvalid(s0_rvalid),    // output wire s_axi_rvalid
+		.s_axi_rready(s0_rready)    // input wire s_axi_rready
+		);
 `endif
 
 `ifdef RISCV_FORMAL
@@ -531,13 +556,22 @@ module picorv32_wrapper #(
 	);
 `endif
 
-	reg [1023:0] firmware_file;
-	initial begin
-		if (!$value$plusargs("firmware=%s", firmware_file))
-			firmware_file = "D:/Youssef/Projects/picorv32/firmware/firmware.hex";
-		$readmemh(firmware_file, mem.memory);
+reg printing_statement = 1'b0; ;
+always @(posedge clk) begin
+	if (mem_axi_awvalid && mem_axi_awready && mem_axi_awaddr == 32'h10000000) begin
+		printing_statement = 1'b1;
+	end
+	if(printing_statement) begin
+		if (mem_axi_wvalid && mem_axi_wready) begin
+			$write("%c", mem_axi_wdata[7:0]);
+			printing_statement = 1'b0;
+		end else begin
+			printing_statement = 1'b1;
+		end
 	end
 
+end
+	
 	integer cycle_counter;
 	always @(posedge clk) begin
 		cycle_counter <= resetn ? cycle_counter + 1 : 0;

@@ -11,15 +11,18 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="10,435,197.083 ns"></ZoomStartTime>
-      <ZoomEndTime time="10,435,320.584 ns"></ZoomEndTime>
-      <Cursor1Time time="10,435,300.000 ns"></Cursor1Time>
+      <ZoomStartTime time="7,070,760.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="7,076,065.001 ns"></ZoomEndTime>
+      <Cursor1Time time="7,070,765.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="340"></NameColumnWidth>
-      <ValueColumnWidth column_width="150"></ValueColumnWidth>
+      <ValueColumnWidth column_width="135"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="3" />
+   <WVObjectSize size="8" />
+   <wave_markers>
+      <marker time="114420000" label="" />
+   </wave_markers>
    <wvobject fp_name="group96" type="group">
       <obj_property name="label">pe_array_controller</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -179,7 +182,6 @@
    <wvobject fp_name="group162" type="group">
       <obj_property name="label">Accel</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/testbench/top/accel/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -367,6 +369,420 @@
       <wvobject fp_name="/testbench/top/accel/WAIT_READ_3" type="array">
          <obj_property name="ElementShortName">WAIT_READ_3[1:0]</obj_property>
          <obj_property name="ObjectShortName">WAIT_READ_3[1:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group404" type="group">
+      <obj_property name="label">Picorv32</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/testbench/top/printing_statement" type="logic">
+         <obj_property name="ElementShortName">printing_statement</obj_property>
+         <obj_property name="ObjectShortName">printing_statement</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/clk" type="logic">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/resetn" type="logic">
+         <obj_property name="ElementShortName">resetn</obj_property>
+         <obj_property name="ObjectShortName">resetn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/trap" type="logic">
+         <obj_property name="ElementShortName">trap</obj_property>
+         <obj_property name="ObjectShortName">trap</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_awvalid" type="logic">
+         <obj_property name="ElementShortName">mem_axi_awvalid</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_awvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_awready" type="logic">
+         <obj_property name="ElementShortName">mem_axi_awready</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_awready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_awaddr" type="array">
+         <obj_property name="ElementShortName">mem_axi_awaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_awaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_awprot" type="array">
+         <obj_property name="ElementShortName">mem_axi_awprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_awprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_wvalid" type="logic">
+         <obj_property name="ElementShortName">mem_axi_wvalid</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_wvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_wready" type="logic">
+         <obj_property name="ElementShortName">mem_axi_wready</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_wready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_wdata" type="array">
+         <obj_property name="ElementShortName">mem_axi_wdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_wdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_wstrb" type="array">
+         <obj_property name="ElementShortName">mem_axi_wstrb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_wstrb[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_bvalid" type="logic">
+         <obj_property name="ElementShortName">mem_axi_bvalid</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_bvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_bready" type="logic">
+         <obj_property name="ElementShortName">mem_axi_bready</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_bready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_arvalid" type="logic">
+         <obj_property name="ElementShortName">mem_axi_arvalid</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_arvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_arready" type="logic">
+         <obj_property name="ElementShortName">mem_axi_arready</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_arready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_araddr" type="array">
+         <obj_property name="ElementShortName">mem_axi_araddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_araddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_arprot" type="array">
+         <obj_property name="ElementShortName">mem_axi_arprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_arprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_rvalid" type="logic">
+         <obj_property name="ElementShortName">mem_axi_rvalid</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_rvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_rready" type="logic">
+         <obj_property name="ElementShortName">mem_axi_rready</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_rready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_rdata" type="array">
+         <obj_property name="ElementShortName">mem_axi_rdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_rdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/pcpi_valid" type="logic">
+         <obj_property name="ElementShortName">pcpi_valid</obj_property>
+         <obj_property name="ObjectShortName">pcpi_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/pcpi_insn" type="array">
+         <obj_property name="ElementShortName">pcpi_insn[31:0]</obj_property>
+         <obj_property name="ObjectShortName">pcpi_insn[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/pcpi_rs1" type="array">
+         <obj_property name="ElementShortName">pcpi_rs1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">pcpi_rs1[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/pcpi_rs2" type="array">
+         <obj_property name="ElementShortName">pcpi_rs2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">pcpi_rs2[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/pcpi_wr" type="logic">
+         <obj_property name="ElementShortName">pcpi_wr</obj_property>
+         <obj_property name="ObjectShortName">pcpi_wr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/pcpi_rd" type="array">
+         <obj_property name="ElementShortName">pcpi_rd[31:0]</obj_property>
+         <obj_property name="ObjectShortName">pcpi_rd[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/pcpi_wait" type="logic">
+         <obj_property name="ElementShortName">pcpi_wait</obj_property>
+         <obj_property name="ObjectShortName">pcpi_wait</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/pcpi_ready" type="logic">
+         <obj_property name="ElementShortName">pcpi_ready</obj_property>
+         <obj_property name="ObjectShortName">pcpi_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/irq" type="array">
+         <obj_property name="ElementShortName">irq[31:0]</obj_property>
+         <obj_property name="ObjectShortName">irq[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/eoi" type="array">
+         <obj_property name="ElementShortName">eoi[31:0]</obj_property>
+         <obj_property name="ObjectShortName">eoi[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/trace_valid" type="logic">
+         <obj_property name="ElementShortName">trace_valid</obj_property>
+         <obj_property name="ObjectShortName">trace_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/trace_data" type="array">
+         <obj_property name="ElementShortName">trace_data[35:0]</obj_property>
+         <obj_property name="ObjectShortName">trace_data[35:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_valid" type="logic">
+         <obj_property name="ElementShortName">mem_valid</obj_property>
+         <obj_property name="ObjectShortName">mem_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_addr" type="array">
+         <obj_property name="ElementShortName">mem_addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_wdata" type="array">
+         <obj_property name="ElementShortName">mem_wdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_wdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_wstrb" type="array">
+         <obj_property name="ElementShortName">mem_wstrb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_wstrb[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_instr" type="logic">
+         <obj_property name="ElementShortName">mem_instr</obj_property>
+         <obj_property name="ObjectShortName">mem_instr</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_ready" type="logic">
+         <obj_property name="ElementShortName">mem_ready</obj_property>
+         <obj_property name="ObjectShortName">mem_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_rdata" type="array">
+         <obj_property name="ElementShortName">mem_rdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_rdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/ENABLE_COUNTERS" type="logic">
+         <obj_property name="ElementShortName">ENABLE_COUNTERS</obj_property>
+         <obj_property name="ObjectShortName">ENABLE_COUNTERS</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/ENABLE_COUNTERS64" type="logic">
+         <obj_property name="ElementShortName">ENABLE_COUNTERS64</obj_property>
+         <obj_property name="ObjectShortName">ENABLE_COUNTERS64</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/ENABLE_REGS_16_31" type="logic">
+         <obj_property name="ElementShortName">ENABLE_REGS_16_31</obj_property>
+         <obj_property name="ObjectShortName">ENABLE_REGS_16_31</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/ENABLE_REGS_DUALPORT" type="logic">
+         <obj_property name="ElementShortName">ENABLE_REGS_DUALPORT</obj_property>
+         <obj_property name="ObjectShortName">ENABLE_REGS_DUALPORT</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/TWO_STAGE_SHIFT" type="logic">
+         <obj_property name="ElementShortName">TWO_STAGE_SHIFT</obj_property>
+         <obj_property name="ObjectShortName">TWO_STAGE_SHIFT</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/BARREL_SHIFTER" type="logic">
+         <obj_property name="ElementShortName">BARREL_SHIFTER</obj_property>
+         <obj_property name="ObjectShortName">BARREL_SHIFTER</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/TWO_CYCLE_COMPARE" type="logic">
+         <obj_property name="ElementShortName">TWO_CYCLE_COMPARE</obj_property>
+         <obj_property name="ObjectShortName">TWO_CYCLE_COMPARE</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/TWO_CYCLE_ALU" type="logic">
+         <obj_property name="ElementShortName">TWO_CYCLE_ALU</obj_property>
+         <obj_property name="ObjectShortName">TWO_CYCLE_ALU</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/COMPRESSED_ISA" type="logic">
+         <obj_property name="ElementShortName">COMPRESSED_ISA</obj_property>
+         <obj_property name="ObjectShortName">COMPRESSED_ISA</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/CATCH_MISALIGN" type="logic">
+         <obj_property name="ElementShortName">CATCH_MISALIGN</obj_property>
+         <obj_property name="ObjectShortName">CATCH_MISALIGN</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/CATCH_ILLINSN" type="logic">
+         <obj_property name="ElementShortName">CATCH_ILLINSN</obj_property>
+         <obj_property name="ObjectShortName">CATCH_ILLINSN</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/ENABLE_PCPI" type="logic">
+         <obj_property name="ElementShortName">ENABLE_PCPI</obj_property>
+         <obj_property name="ObjectShortName">ENABLE_PCPI</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/ENABLE_MUL" type="logic">
+         <obj_property name="ElementShortName">ENABLE_MUL</obj_property>
+         <obj_property name="ObjectShortName">ENABLE_MUL</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/ENABLE_FAST_MUL" type="logic">
+         <obj_property name="ElementShortName">ENABLE_FAST_MUL</obj_property>
+         <obj_property name="ObjectShortName">ENABLE_FAST_MUL</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/ENABLE_DIV" type="logic">
+         <obj_property name="ElementShortName">ENABLE_DIV</obj_property>
+         <obj_property name="ObjectShortName">ENABLE_DIV</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/ENABLE_IRQ" type="logic">
+         <obj_property name="ElementShortName">ENABLE_IRQ</obj_property>
+         <obj_property name="ObjectShortName">ENABLE_IRQ</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/ENABLE_IRQ_QREGS" type="logic">
+         <obj_property name="ElementShortName">ENABLE_IRQ_QREGS</obj_property>
+         <obj_property name="ObjectShortName">ENABLE_IRQ_QREGS</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/ENABLE_IRQ_TIMER" type="logic">
+         <obj_property name="ElementShortName">ENABLE_IRQ_TIMER</obj_property>
+         <obj_property name="ObjectShortName">ENABLE_IRQ_TIMER</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/ENABLE_TRACE" type="logic">
+         <obj_property name="ElementShortName">ENABLE_TRACE</obj_property>
+         <obj_property name="ObjectShortName">ENABLE_TRACE</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/REGS_INIT_ZERO" type="logic">
+         <obj_property name="ElementShortName">REGS_INIT_ZERO</obj_property>
+         <obj_property name="ObjectShortName">REGS_INIT_ZERO</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/MASKED_IRQ" type="array">
+         <obj_property name="ElementShortName">MASKED_IRQ[31:0]</obj_property>
+         <obj_property name="ObjectShortName">MASKED_IRQ[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/LATCHED_IRQ" type="array">
+         <obj_property name="ElementShortName">LATCHED_IRQ[31:0]</obj_property>
+         <obj_property name="ObjectShortName">LATCHED_IRQ[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/PROGADDR_RESET" type="array">
+         <obj_property name="ElementShortName">PROGADDR_RESET[31:0]</obj_property>
+         <obj_property name="ObjectShortName">PROGADDR_RESET[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/PROGADDR_IRQ" type="array">
+         <obj_property name="ElementShortName">PROGADDR_IRQ[31:0]</obj_property>
+         <obj_property name="ObjectShortName">PROGADDR_IRQ[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/STACKADDR" type="array">
+         <obj_property name="ElementShortName">STACKADDR[31:0]</obj_property>
+         <obj_property name="ObjectShortName">STACKADDR[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/testbench/top/interconnect/s_axi_awready" type="array">
+      <obj_property name="ElementShortName">s_axi_awready[0:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_awready[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/top/interconnect/m_axi_awready" type="array">
+      <obj_property name="ElementShortName">m_axi_awready[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axi_awready[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group502" type="group">
+      <obj_property name="label">DMA</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="group227" type="group">
+      <obj_property name="label">flash</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/testbench/top/flash_mem/rsta_busy" type="logic">
+         <obj_property name="ElementShortName">rsta_busy</obj_property>
+         <obj_property name="ObjectShortName">rsta_busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/rstb_busy" type="logic">
+         <obj_property name="ElementShortName">rstb_busy</obj_property>
+         <obj_property name="ObjectShortName">rstb_busy</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_aclk" type="logic">
+         <obj_property name="ElementShortName">s_aclk</obj_property>
+         <obj_property name="ObjectShortName">s_aclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_aresetn" type="logic">
+         <obj_property name="ElementShortName">s_aresetn</obj_property>
+         <obj_property name="ObjectShortName">s_aresetn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_awid" type="array">
+         <obj_property name="ElementShortName">s_axi_awid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_awaddr" type="array">
+         <obj_property name="ElementShortName">s_axi_awaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_awlen" type="array">
+         <obj_property name="ElementShortName">s_axi_awlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_awsize" type="array">
+         <obj_property name="ElementShortName">s_axi_awsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_awburst" type="array">
+         <obj_property name="ElementShortName">s_axi_awburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_awvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_awvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_awready" type="logic">
+         <obj_property name="ElementShortName">s_axi_awready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_wdata" type="array">
+         <obj_property name="ElementShortName">s_axi_wdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_wstrb" type="array">
+         <obj_property name="ElementShortName">s_axi_wstrb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wstrb[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_wlast" type="logic">
+         <obj_property name="ElementShortName">s_axi_wlast</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_wvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_wvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_wready" type="logic">
+         <obj_property name="ElementShortName">s_axi_wready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_bid" type="array">
+         <obj_property name="ElementShortName">s_axi_bid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_bid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_bresp" type="array">
+         <obj_property name="ElementShortName">s_axi_bresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_bresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_bvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_bvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_bvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_bready" type="logic">
+         <obj_property name="ElementShortName">s_axi_bready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_bready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_arid" type="array">
+         <obj_property name="ElementShortName">s_axi_arid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_araddr" type="array">
+         <obj_property name="ElementShortName">s_axi_araddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_araddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_arlen" type="array">
+         <obj_property name="ElementShortName">s_axi_arlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_arsize" type="array">
+         <obj_property name="ElementShortName">s_axi_arsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_arburst" type="array">
+         <obj_property name="ElementShortName">s_axi_arburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_arvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_arvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_arready" type="logic">
+         <obj_property name="ElementShortName">s_axi_arready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_rid" type="array">
+         <obj_property name="ElementShortName">s_axi_rid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_rdata" type="array">
+         <obj_property name="ElementShortName">s_axi_rdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_rresp" type="array">
+         <obj_property name="ElementShortName">s_axi_rresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_rlast" type="logic">
+         <obj_property name="ElementShortName">s_axi_rlast</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_rvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_rvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/flash_mem/s_axi_rready" type="logic">
+         <obj_property name="ElementShortName">s_axi_rready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rready</obj_property>
       </wvobject>
    </wvobject>
 </wave_config>
