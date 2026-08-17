@@ -17,6 +17,7 @@ GCC_WARNS  = -Werror -Wall -Wextra -Wshadow -Wundef -Wpointer-arith -Wcast-qual 
 GCC_WARNS += -Wredundant-decls -Wstrict-prototypes -Wmissing-prototypes -pedantic # -Wconversion
 TOOLCHAIN_PREFIX = riscv32-unknown-elf-
 COMPRESSED_ISA = C
+VIVADO = cmd.exe /c D:\\Xilinx\\Vivado\\2024.1\\bin\\vivado.bat
 
 # Add things like "export http_proxy=... https_proxy=..." here
 GIT_ENV = true
@@ -103,7 +104,9 @@ synth.v: picorv32.v scripts/yosys/synth_sim.ys
 
 firmware/firmware.hex: firmware/firmware.bin firmware/makehex.py
 	$(PYTHON) firmware/makehex.py $< 32768 > $@
-
+	$(PYTHON) firmware/makehexcoe.py $<
+	$(VIVADO) -mode batch -source scripts/regen_bram.tcl
+	
 firmware/firmware.bin: firmware/firmware.elf
 	$(TOOLCHAIN_PREFIX)objcopy -O binary $< $@
 	chmod -x $@
