@@ -7,53 +7,169 @@ module ai_accel_axi #(
     input             clk,
     input             resetn,
 
-    input             s_axi_awvalid, output reg s_axi_awready,
+    // Write Address Channel
+    input             s_axi_awvalid, 
+    output            s_axi_awready,
     input      [31:0] s_axi_awaddr,
-    input             s_axi_wvalid,  output reg s_axi_wready,
-    input      [31:0] s_axi_wdata,
-    input      [3:0]  s_axi_wstrb,
-    output reg        s_axi_bvalid,  input      s_axi_bready,
+    input      [7:0]  s_axi_awlen,    // AXI4 burst length
+    input      [2:0]  s_axi_awsize,   // Burst size
+    input      [1:0]  s_axi_awburst,  // Burst type
+    input      [1:0]  s_axi_awlock,   // Lock type
+    input      [3:0]  s_axi_awcache,  // Cache type
+    input      [2:0]  s_axi_awprot,   // Protection type
 
-    input             s_axi_arvalid, output reg s_axi_arready,
+    // Write Data Channel
+    input             s_axi_wvalid,  
+    output            s_axi_wready,   
+    input      [31:0] s_axi_wdata, 
+    input      [3:0]  s_axi_wstrb,
+    input             s_axi_wlast,    // Last transfer in burst
+
+    // Write Response Channel
+    output     [1:0]  s_axi_bresp,
+    output            s_axi_bvalid,   
+    input             s_axi_bready,
+
+    // Read Address Channel
+    input             s_axi_arvalid, 
+    output            s_axi_arready,
     input      [31:0] s_axi_araddr,
-    output reg        s_axi_rvalid,  input      s_axi_rready,
-    output reg [31:0] s_axi_rdata
+    input      [7:0]  s_axi_arlen,    // AXI4 burst length
+    input      [2:0]  s_axi_arsize,   // Burst size
+    input      [1:0]  s_axi_arburst,  // Burst type
+    input      [1:0]  s_axi_arlock,   // Lock type
+    input      [3:0]  s_axi_arcache,  // Cache type
+    input      [2:0]  s_axi_arprot,   // Protection type
+
+    // Read Data Channel
+    output            s_axi_rvalid,  
+    input             s_axi_rready,   
+    output     [31:0] s_axi_rdata,
+    output     [1:0]  s_axi_rresp,
+    output            s_axi_rlast     // Last transfer in burst
 );
-    reg ena_write, ena_read;
-    wire ena = ena_write | ena_read;
-    reg [0:0] wea;
-    reg [12:0] addra;
-    reg [31:0] dina;
-    wire enb;
-    wire [0:0] web;
-    wire [12:0] addrb;
-    wire [31:0] dinb;
-    wire [31:0] douta, doutb;
-    blk_mem_gen_0 global_buffer (
-      .clka(clk),    // input wire clka
-      .ena(ena),      // input wire ena
-      .wea(wea),      // input wire [0 : 0] wea
-      .addra(addra),  // input wire [12 : 0] addra
-      .dina(dina),    // input wire [31 : 0] dina
-      .douta(douta),  // output wire [31 : 0] douta
-      .clkb(clk),    // input wire clkb
-      .enb(enb),      // input wire enb
-      .web(web),      // input wire [0 : 0] web
-      .addrb(addrb),  // input wire [12 : 0] addrb
-      .dinb(dinb),    // input wire [31 : 0] dinb
-      .doutb(doutb)  // output wire [31 : 0] doutb
-    );
+
+    wire [14:0] s_axi_awaddr_w  = s_axi_awaddr[14:0];
+    wire [14:0] s_axi_araddr_w  = s_axi_araddr[14:0];
+
+
+    wire        bram_en_a;
+    wire [3:0]  bram_we_a;
+    wire [14:0] bram_addr_a;
+    wire [31:0] bram_wrdata_a;
+    wire [31:0] bram_rddata_a;
+
+    wire [DATA_W-1:0]          weight_in;
+    wire                       load_weight;
+    wire [ROWS*DATA_W-1:0]     act_in_flat;
+    wire [COLS*ACC_W-1:0]      psum_out_flat;
+    wire [COLS*ACC_W-1:0]      o_results;
+    wire                       o_done, o_busy;
+    wire                       enb;
+    wire [0:0]                 web;
+    wire [12:0]                addrb;
+    wire [31:0]                dinb;
+    wire [31:0]                doutb;
 
     reg [31:0] ctrl_reg;
     reg [31:0] status_reg;
-    wire [DATA_W-1:0]            weight_in;
-    wire                         load_weight;
-    wire [ROWS*DATA_W-1:0]       act_in_flat;
-    wire [COLS*ACC_W-1:0]        psum_out_flat;
-    wire [COLS*ACC_W-1:0]        o_results;
-    wire                         o_done, o_busy;
 
-    pe_array #(.DATA_W(DATA_W), .COLS(COLS), .ROWS(ROWS), .ACC_W(ACC_W) ) pe_array_inst (
+    wire is_reg_addr   = (bram_addr_a == 15'h0000 || bram_addr_a == 15'h0004);
+    wire is_ctrl_write = is_reg_addr && bram_we_a[0] && bram_addr_a == 15'h0000 && bram_en_a;
+
+    always @(posedge clk) begin
+        if (!resetn)
+            ctrl_reg <= 0;
+        else if (is_ctrl_write)
+            ctrl_reg <= bram_wrdata_a;
+        if(ctrl_reg[0] == 1) 
+            ctrl_reg[0] <= 0;
+    end
+
+    always @(posedge clk) begin
+        status_reg[0]    <= o_done;
+        status_reg[1]    <= o_busy;
+        status_reg[31:2] <= 30'd0;
+    end
+
+    wire       bram_en_a_gated  = bram_en_a & ~is_reg_addr;
+    wire [0:0] bram_we_a_gated = bram_we_a[0] & ~is_reg_addr;
+
+    wire is_reg_read = bram_en_a && ~|bram_we_a && is_reg_addr;
+
+    reg [14:0] read_addr_reg;
+    reg        read_en_reg;
+    always @(posedge clk) begin
+        read_addr_reg <= bram_addr_a;
+        read_en_reg   <= is_reg_read;
+    end
+
+    wire [31:0] blk_douta;
+    wire [31:0] reg_rddata = (read_addr_reg == 15'h0000) ?
+                              {24'b0, ctrl_reg} :
+                              {24'b0, status_reg};
+    assign bram_rddata_a = read_en_reg ? reg_rddata : blk_douta;
+    wire bram_rst_a;
+    wire bram_clk_a;
+    axi_bram_ctrl_1 accel_bram_ctrl (
+        .s_axi_aclk(clk),
+        .s_axi_aresetn(resetn),
+        .s_axi_awaddr(s_axi_awaddr_w),
+        .s_axi_awlen(s_axi_awlen),
+        .s_axi_awsize(s_axi_awsize),
+        .s_axi_awburst(s_axi_awburst),
+        .s_axi_awlock(s_axi_awlock),
+        .s_axi_awcache(s_axi_awcache),
+        .s_axi_awprot(s_axi_awprot),
+        .s_axi_awvalid(s_axi_awvalid),
+        .s_axi_awready(s_axi_awready),
+        .s_axi_wdata(s_axi_wdata),
+        .s_axi_wstrb(s_axi_wstrb),
+        .s_axi_wlast(s_axi_wlast),
+        .s_axi_wvalid(s_axi_wvalid),
+        .s_axi_wready(s_axi_wready),
+        .s_axi_bresp(s_axi_bresp),
+        .s_axi_bvalid(s_axi_bvalid),
+        .s_axi_bready(s_axi_bready),
+        .s_axi_araddr(s_axi_araddr_w),
+        .s_axi_arlen(s_axi_arlen),
+        .s_axi_arsize(s_axi_arsize),
+        .s_axi_arburst(s_axi_arburst),
+        .s_axi_arlock(s_axi_arlock),
+        .s_axi_arcache(s_axi_arcache),
+        .s_axi_arprot(s_axi_arprot),
+        .s_axi_arvalid(s_axi_arvalid),
+        .s_axi_arready(s_axi_arready),
+        .s_axi_rdata(s_axi_rdata),
+        .s_axi_rresp(s_axi_rresp),
+        .s_axi_rlast(s_axi_rlast),
+        .s_axi_rvalid(s_axi_rvalid),
+        .s_axi_rready(s_axi_rready),
+        .bram_rst_a(bram_rst_a),
+        .bram_clk_a(bram_clk_a),
+        .bram_en_a(bram_en_a),
+        .bram_we_a(bram_we_a),
+        .bram_addr_a(bram_addr_a),
+        .bram_wrdata_a(bram_wrdata_a),
+        .bram_rddata_a(bram_rddata_a)
+    );
+
+    blk_mem_gen_0 global_buffer (
+        .clka(bram_clk_a),
+        .ena(bram_en_a_gated),
+        .wea(bram_we_a_gated),
+        .addra(bram_addr_a[14:2]),
+        .dina(bram_wrdata_a),
+        .douta(blk_douta),
+        .clkb(clk),
+        .enb(enb),
+        .web(web),
+        .addrb(addrb),
+        .dinb(dinb),
+        .doutb(doutb)
+    );
+
+    pe_array #(.DATA_W(DATA_W), .COLS(COLS), .ROWS(ROWS), .ACC_W(ACC_W)) pe_array_inst (
         .clk(clk),
         .rst_n(resetn),
         .load_weight(load_weight),
@@ -62,7 +178,7 @@ module ai_accel_axi #(
         .psum_out_flat(psum_out_flat)
     );
 
-    pe_array_controller #(.DATA_W(DATA_W), .COLS(COLS), .ROWS(ROWS), .ACC_W(ACC_W) ) pe_array_controller_inst (
+    pe_array_controller #(.DATA_W(DATA_W), .COLS(COLS), .ROWS(ROWS), .ACC_W(ACC_W)) pe_array_controller_inst (
         .clk(clk),
         .resetn(resetn),
         .ctrl_reg(ctrl_reg),
@@ -80,101 +196,4 @@ module ai_accel_axi #(
         .doutb(doutb)
     );
 
-    // Status is read-only: bit0 = done, bit1 = busy.
-    always @(posedge clk) begin
-        status_reg[0] <= o_done;
-        status_reg[1] <= o_busy;
-        status_reg[31:2] <= 30'd0;
-    end
-
-    // ---- AXI write channel ----
-    reg [31:0] waddr;
-    always @(posedge clk) begin
-        if (!resetn) begin
-            s_axi_awready <= 0; s_axi_wready <= 0; s_axi_bvalid <= 0;
-            ctrl_reg <= 0;
-        end else begin
-            s_axi_awready <= 0;
-            s_axi_wready  <= 0;
-            ena_write <= 0;
-            if (s_axi_awvalid && !s_axi_awready && !s_axi_bvalid) begin
-                s_axi_awready <= 1;
-                waddr = s_axi_awaddr;
-            end
-            if (s_axi_wvalid && !s_axi_wready && !s_axi_bvalid) begin
-                if (waddr == 32'h30000000)
-                    ctrl_reg <= s_axi_wdata;
-                else begin
-                    ena_write <= 1;
-                    wea <= 1;
-                    addra <= waddr[14:2];
-                    dina <= s_axi_wdata; // DATA: write to memory
-                end
-                s_axi_wready <= 1;
-                s_axi_bvalid <= 1;
-            end
-            if (s_axi_bvalid && s_axi_bready)
-                s_axi_bvalid <= 0;
-        end
-    end
-
-    // ---- AXI read channel ----
-    reg [31:0] raddr;
-    reg [4:0]  result_idx;
-    // make states
-    parameter IDLE = 2'b00, WAIT_READ_1 = 2'b01, WAIT_READ_2 = 2'b10, WAIT_READ_3 = 2'b11;
-    reg [1:0] current_state;
-    always @(posedge clk) begin
-        if (!resetn) begin
-            s_axi_arready <= 0; s_axi_rvalid <= 0;
-            current_state <= IDLE;
-        end else begin
-            s_axi_arready <= 0;
-            ena_read <= 0;
-            if (s_axi_arvalid && !s_axi_arready && !s_axi_rvalid) begin
-                s_axi_arready <= 1;
-                raddr <= s_axi_araddr;
-            end
-            if (s_axi_arready) begin
-                if (raddr == 32'h30000000) begin
-                    s_axi_rdata <= ctrl_reg;
-                    s_axi_rvalid <= 1;
-                end
-                else if (raddr == 32'h30000004) begin
-                    s_axi_rdata <= status_reg;
-                    s_axi_rvalid <= 1;
-                end
-                else if (raddr >= 32'h30000080 && raddr <= 32'h300000BC) begin
-                    result_idx <= (raddr - 32'h30000080) >> 2;
-                    s_axi_rdata <= o_results[((raddr - 32'h30000080) >> 2)*32 +: 32];
-                    s_axi_rvalid <= 1;
-                end
-                else begin
-                    ena_read <= 1;
-                    wea <= 0;
-                    addra <= raddr[14:2];
-                    current_state <= WAIT_READ_1;
-                    s_axi_rvalid <= 0;
-                end
-            end
-            if (current_state == WAIT_READ_1) begin
-                ena_read <= 1;
-                s_axi_rvalid <= 0;
-                current_state <= WAIT_READ_2;
-            end
-            if (current_state == WAIT_READ_2) begin
-                ena_read <= 1;
-                s_axi_rvalid <= 0;
-                current_state <= WAIT_READ_3;
-            end
-            if (current_state == WAIT_READ_3) begin
-                ena_read <= 1;
-                s_axi_rdata <= douta;
-                s_axi_rvalid <= 1;
-                current_state <= IDLE;
-            end
-            if (s_axi_rvalid && s_axi_rready)
-                s_axi_rvalid <= 0;
-        end
-    end
 endmodule

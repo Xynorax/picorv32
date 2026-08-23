@@ -6,12 +6,27 @@
 #define ACCEL_ACTIVATIONS    (*(volatile uint32_t*)0x30004000)
 #define ACCEL_RESULTS        (*(volatile uint32_t*)0x30000080)
 
-#define SOFTWARE_ON 1
+#define CDMA_CTRL    (*(volatile uint32_t*)0x40000000)
+#define CDMA_SR   (*(volatile uint32_t*)0x40000004)
+#define CDMA_SRCDA (*(volatile uint32_t*)0x40000018)
+#define CDMA_DTAD  (*(volatile uint32_t*)0x40000020)
+#define CDMA_SLEN  (*(volatile uint32_t*)0x40000028)
+
+#define SOFTWARE_ON 0
 #define ACCELERATOR_ON 1
+
+static void cdma_copy(uint32_t src, uint32_t dst, uint32_t len)
+{
+    CDMA_SRCDA = src;
+    CDMA_DTAD  = dst;
+    CDMA_SLEN  = len;
+    while (!(CDMA_SR & (1 << 12))) {} // wait for IOC_IrqGen
+}
+
 void ai_model(void)
 {
     unsigned int cyc_start, cyc_end;
-    print_str("AI model initialized\n");
+    print_str("AI model initialized!!\n");
     if (SOFTWARE_ON) {
         __asm__ volatile ("rdcycle %0" : "=r"(cyc_start));
         
@@ -43,32 +58,12 @@ void ai_model(void)
     }
     if (ACCELERATOR_ON) {
         // Start NN with accelerator
+        
         __asm__ volatile ("rdcycle %0" : "=r"(cyc_start));
-        volatile uint32_t* weights_address = &ACCEL_WEIGHTS;
-        for(int i= 0; i<NUM_INPUTS*NUM_NEURONS/4; i++) {
-            int t  = i / 64;
-            int w  = i % 64;
-            int r  = 15 - (w / 4);
-            int c0 = 15 - 4 * (w % 4);
-            uint32_t packed =
-                ((uint32_t)(uint8_t)weights[t*16 + r][c0]     <<  0) |
-                ((uint32_t)(uint8_t)weights[t*16 + r][c0 - 1] <<  8) |
-                ((uint32_t)(uint8_t)weights[t*16 + r][c0 - 2] << 16) |
-                ((uint32_t)(uint8_t)weights[t*16 + r][c0 - 3] << 24);
+        cdma_copy((uint32_t)&weights, 0x30000008, NUM_INPUTS*NUM_NEURONS* sizeof(int8_t));
+        print_str("Writing activations to accel buffer\n");
+        cdma_copy((uint32_t)&activations,    0x30004000, NUM_TILES*TILE_SIZE* sizeof(int8_t));
 
-            *(weights_address + i) = packed;
-        }
-
-        volatile uint32_t* activations_address = &ACCEL_ACTIVATIONS;
-        for(int i= 0; i<NUM_TILES*TILE_SIZE/4; i++) {
-            uint32_t packed =
-                ((uint32_t)(uint8_t)activations[i/4][4*(i%4) + 0] <<  0) |
-                ((uint32_t)(uint8_t)activations[i/4][4*(i%4) + 1] <<  8) |
-                ((uint32_t)(uint8_t)activations[i/4][4*(i%4) + 2] << 16) |
-                ((uint32_t)(uint8_t)activations[i/4][4*(i%4) + 3] << 24);
-
-            *(activations_address + i) = packed;
-        }
         ACCEL_CTRL = 1; // Start accelerator
         
         while (!(ACCEL_STATUS & 1)) {}
