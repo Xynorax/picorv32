@@ -4,7 +4,7 @@
 #define ACCEL_STATUS (*(volatile uint32_t*)0x30000004)
 #define ACCEL_WEIGHTS (*(volatile uint32_t*)0x30000008)
 #define ACCEL_ACTIVATIONS    (*(volatile uint32_t*)0x30004000)
-#define ACCEL_RESULTS        (*(volatile uint32_t*)0x30000080)
+#define ACCEL_RESULTS        (*(volatile uint32_t*)0x30003E00)
 
 #define CDMA_CTRL    (*(volatile uint32_t*)0x40000000)
 #define CDMA_SR   (*(volatile uint32_t*)0x40000004)
@@ -69,7 +69,7 @@ void ai_model(void)
         while (!(ACCEL_STATUS & 1)) {}
         print_str("Accelerator based output: ");
         for (int o=0; o<16; o++) {
-            int32_t raw = (int32_t)(*(volatile uint32_t*)(0x30000080 + 4*o));
+            int32_t raw = (int32_t)((&ACCEL_RESULTS)[o]);
             int v = raw >> 10;
             if (v < 0) v = 0;
             if (v > 127) v = 127;

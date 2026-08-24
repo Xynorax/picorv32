@@ -15,17 +15,18 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="113.050000 us"></ZoomStartTime>
-      <ZoomEndTime time="134.470001 us"></ZoomEndTime>
-      <Cursor1Time time="123.050000 us"></Cursor1Time>
+      <ZoomStartTime time="202,596.800 ns"></ZoomStartTime>
+      <ZoomEndTime time="202,625.001 ns"></ZoomEndTime>
+      <Cursor1Time time="202,640.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="340"></NameColumnWidth>
-      <ValueColumnWidth column_width="125"></ValueColumnWidth>
+      <NameColumnWidth column_width="265"></NameColumnWidth>
+      <ValueColumnWidth column_width="239"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="8" />
    <wave_markers>
       <marker time="123050000" label="" />
+      <marker time="486630000" label="" />
    </wave_markers>
    <wvobject fp_name="group96" type="group">
       <obj_property name="label">pe_array_controller</obj_property>
@@ -262,17 +263,9 @@
          <obj_property name="ElementShortName">s_axi_bready</obj_property>
          <obj_property name="ObjectShortName">s_axi_bready</obj_property>
       </wvobject>
-      <wvobject fp_name="/testbench/top/accel/s_axi_arvalid" type="logic">
-         <obj_property name="ElementShortName">s_axi_arvalid</obj_property>
-         <obj_property name="ObjectShortName">s_axi_arvalid</obj_property>
-      </wvobject>
       <wvobject fp_name="/testbench/top/accel/s_axi_arready" type="logic">
          <obj_property name="ElementShortName">s_axi_arready</obj_property>
          <obj_property name="ObjectShortName">s_axi_arready</obj_property>
-      </wvobject>
-      <wvobject fp_name="/testbench/top/accel/s_axi_araddr" type="array">
-         <obj_property name="ElementShortName">s_axi_araddr[31:0]</obj_property>
-         <obj_property name="ObjectShortName">s_axi_araddr[31:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/testbench/top/accel/s_axi_arlen" type="array">
          <obj_property name="ElementShortName">s_axi_arlen[7:0]</obj_property>
@@ -298,6 +291,14 @@
          <obj_property name="ElementShortName">s_axi_arprot[2:0]</obj_property>
          <obj_property name="ObjectShortName">s_axi_arprot[2:0]</obj_property>
       </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_araddr" type="array">
+         <obj_property name="ElementShortName">s_axi_araddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_araddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/accel/s_axi_arvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_arvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arvalid</obj_property>
+      </wvobject>
       <wvobject fp_name="/testbench/top/accel/s_axi_rvalid" type="logic">
          <obj_property name="ElementShortName">s_axi_rvalid</obj_property>
          <obj_property name="ObjectShortName">s_axi_rvalid</obj_property>
@@ -309,6 +310,7 @@
       <wvobject fp_name="/testbench/top/accel/s_axi_rdata" type="array">
          <obj_property name="ElementShortName">s_axi_rdata[31:0]</obj_property>
          <obj_property name="ObjectShortName">s_axi_rdata[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/testbench/top/accel/s_axi_rresp" type="array">
          <obj_property name="ElementShortName">s_axi_rresp[1:0]</obj_property>
@@ -730,7 +732,6 @@
    <wvobject fp_name="group502" type="group">
       <obj_property name="label">DMA</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/testbench/top/dma0/m_axi_aclk" type="logic">
          <obj_property name="ElementShortName">m_axi_aclk</obj_property>
          <obj_property name="ObjectShortName">m_axi_aclk</obj_property>
@@ -1159,6 +1160,7 @@
    <wvobject fp_name="group315" type="group">
       <obj_property name="label">pe_array_ctrler</obj_property>
       <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -1214,6 +1216,7 @@
       <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/dinb" type="array">
          <obj_property name="ElementShortName">dinb[31:0]</obj_property>
          <obj_property name="ObjectShortName">dinb[31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/doutb" type="array">
          <obj_property name="ElementShortName">doutb[31:0]</obj_property>
@@ -1222,6 +1225,7 @@
       <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/state" type="array">
          <obj_property name="ElementShortName">state[3:0]</obj_property>
          <obj_property name="ObjectShortName">state[3:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/prev_ctrl0" type="logic">
          <obj_property name="ElementShortName">prev_ctrl0</obj_property>
