@@ -148,7 +148,6 @@ module pe_array_controller #(
             act_in_flat        <= 0;
             load_weight        <= 0;
             weight_in          <= 0;
-            dinb               <= 0;
             res_cntr           <= 0;
                         for (c = 0; c < COLS; c = c + 1)
                             acc[c] <= {ACC_W{1'b0}};
