@@ -2,7 +2,7 @@ module picorv32_wrapper #(
 	parameter AXI_TEST = 0,
 	parameter VERBOSE = 0
 ) (
-	input clk,
+    input sys_clk,
 	input resetn,
 	output trap,
 	output trace_valid,
@@ -15,7 +15,15 @@ module picorv32_wrapper #(
 	output [7:0] mem_axi_wdata_out,
 	output tests_passed_out
 );
-    
+    wire clk;
+      clk_wiz_0 instance_name
+   (
+    .clk(clk),  
+    .reset(resetn), // input reset
+    .locked(),     
+    .clk_in1(sys_clk)      // input clk_in1
+);
+
 	wire tests_passed;
 	assign tests_passed_out = tests_passed;
 	reg [31:0] irq = 0;

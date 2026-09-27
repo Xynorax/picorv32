@@ -38,6 +38,18 @@ Read length address = 0x40000028
 
 Global buffer and accelerator registers are 32 bit wide. Activations and weights are 8 bit quantized.
 
-Possible improvements:
+### Implementation details
+
+Clock = 100 MHz 
+Latency = cycles/clk = 51018/100000 = 0.51018 s = 510.18 ms
+Total on-chip power = 0.38 W
+Energy per Inference = 0.1938684 J = 193.8684 mJ
+
+LUTs = 26100 (Accelerator = 22658, Picorv32 core = 2091)
+Registers = 14085 (Accelerator = 11432, Picorv32 core = 1242)
+F7 Muxes = 66
+F8 muxes = 32
+Block RAM tiles = 8.5 (Accelerator = 7.5, Flash memory = 1)
+## Possible improvements:
 1. Double weights buffer. Allows streaming of the next set of weights during current computation.
 2. Addition of more than one accelerator and parallelizing computation.

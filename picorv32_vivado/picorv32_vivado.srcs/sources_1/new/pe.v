@@ -74,7 +74,7 @@ module processing_element #(
     reg signed [DATA_W-1:0] act_out_reg;
     reg signed [ACC_W-1:0]  psum_out_reg;
 
-    always @(posedge clk or negedge rst_n) begin
+    (* use_dsp = "yes" *) always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             act_out_reg  <= {DATA_W{1'b0}};
             psum_out_reg <= {ACC_W{1'b0}};

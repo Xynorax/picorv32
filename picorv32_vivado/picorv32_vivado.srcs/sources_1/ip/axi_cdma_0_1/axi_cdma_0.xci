@@ -37,15 +37,15 @@
         "C_M_AXI_SG_ADDR_WIDTH": [ { "value": "32", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_M_AXI_SG_DATA_WIDTH": [ { "value": "32", "format": "long", "usage": "all" } ],
         "C_DLYTMR_RESOLUTION": [ { "value": "256", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_FAMILY": [ { "value": "kintex7", "resolve_type": "generated", "usage": "all" } ]
+        "C_FAMILY": [ { "value": "zynq", "resolve_type": "generated", "usage": "all" } ]
       },
       "project_parameters": {
-        "ARCHITECTURE": [ { "value": "kintex7" } ],
-        "BASE_BOARD_PART": [ { "value": "" } ],
+        "ARCHITECTURE": [ { "value": "zynq" } ],
+        "BASE_BOARD_PART": [ { "value": "xilinx.com:zc702:part0:1.4" } ],
         "BOARD_CONNECTIONS": [ { "value": "" } ],
-        "DEVICE": [ { "value": "xc7k70t" } ],
+        "DEVICE": [ { "value": "xc7z020" } ],
         "NEXTGEN_VERSAL": [ { "value": "0" } ],
-        "PACKAGE": [ { "value": "fbv676" } ],
+        "PACKAGE": [ { "value": "clg484" } ],
         "PREFHDL": [ { "value": "VERILOG" } ],
         "SILICON_REVISION": [ { "value": "" } ],
         "SIMULATOR_LANGUAGE": [ { "value": "MIXED" } ],
