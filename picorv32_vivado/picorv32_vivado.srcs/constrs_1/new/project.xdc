@@ -6,3 +6,5 @@ set_property IOSTANDARD SSTL15 [get_ports sys_clk]
 
 # 3. Create the Timing engine constraint for a 100MHz waveform (10ns period)
 create_clock -period 10.000 -name sys_clk_pin [get_ports sys_clk]
+
+set_property IOSTANDARD LVCMOS18 [get_ports resetn]
