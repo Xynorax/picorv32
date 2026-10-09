@@ -19,7 +19,7 @@ module picorv32_wrapper #(
       clk_wiz_0 instance_name
    (
     .clk(clk),  
-    .reset(resetn), // input reset
+    .resetn(resetn), // input reset
     .locked(),     
     .clk_in1(sys_clk)      // input clk_in1
 );

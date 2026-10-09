@@ -69,7 +69,7 @@ module testbench #(
 		.AXI_TEST (AXI_TEST),
 		.VERBOSE  (VERBOSE)
 	) top (
-		.clk(clk),
+		.sys_clk(clk),
 		.resetn(resetn),
 		.trap(trap),
 		.trace_valid(trace_valid),
