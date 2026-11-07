@@ -82,6 +82,15 @@ module testbench #(
 		.mem_axi_wdata_out(mem_axi_wdata),
 		.tests_passed_out(tests_passed)
 	);
+	//always@(posedge clk) begin
+    //    if(top.mem_axi_arvalid & top.mem_axi_arready) begin
+    //       $display("read from %h", top.mem_axi_araddr);
+    //    end
+    //    if(top.mem_axi_rvalid & top.mem_axi_rready) begin
+    //       $display("data read %h", top.mem_axi_rdata);
+    //    end
+	//end
+	
 	reg printing_statement = 1'b0; ;
 	always @(posedge clk) begin
 		if (mem_axi_awvalid && mem_axi_awready && mem_axi_awaddr == 32'h10000000) begin

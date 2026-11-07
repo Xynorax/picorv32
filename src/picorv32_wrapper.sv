@@ -1,6 +1,10 @@
 module picorv32_wrapper #(
 	parameter AXI_TEST = 0,
-	parameter VERBOSE = 0
+	parameter VERBOSE = 0,
+	parameter integer MEMSEC_DATA_SIZE = 262144,
+	parameter integer MEMSEC_TREE_ROOTS = 16,
+	parameter integer MEMSEC_TREE_ARITY = 4,
+	parameter integer MEMSEC_TREE_NODE_CACHE = 256
 ) (
     input sys_clk,
 	input resetn,
@@ -33,7 +37,7 @@ module picorv32_wrapper #(
 
 	always @* begin
 		irq = 0;
-		irq[4] = &count_cycle[12:0];
+		//irq[4] = &count_cycle[15:0];
 		irq[5] = &count_cycle[15:0];
 	end
 
@@ -96,17 +100,19 @@ module picorv32_wrapper #(
 		.tests_passed    (tests_passed     )
 	);
 `else
-	wire        s0_awvalid, s0_awready; wire [31:0] s0_awaddr;
-	wire        s0_wvalid,  s0_wready;  wire [31:0] s0_wdata; wire [3:0] s0_wstrb;
-	wire        s0_bvalid,  s0_bready;
-	wire        s0_arvalid, s0_arready; wire [31:0] s0_araddr;
-	wire        s0_rvalid,  s0_rready;  wire [31:0] s0_rdata;
-	wire [3:0]  s0_awid, s0_bid, s0_arid, s0_rid;
-	wire [7:0]  s0_awlen, s0_arlen;
-	wire [2:0]  s0_awsize, s0_arsize;
-	wire [1:0]  s0_awburst, s0_arburst;
-	wire 		s0_wlast, s0_rlast;
-	wire [1:0]  s0_bresp, s0_rresp;
+	// memsec master -> blk_mem_gen_1 (32-bit AXI4)
+	wire        mem_awvalid, mem_awready; wire [31:0] mem_awaddr;
+	wire        mem_wvalid,  mem_wready;  wire [31:0] mem_wdata; wire [3:0] mem_wstrb;
+	wire        mem_bvalid,  mem_bready;
+	wire        mem_arvalid, mem_arready; wire [31:0] mem_araddr;
+	wire        mem_rvalid,  mem_rready;  wire [31:0] mem_rdata;
+	wire [3:0]  mem_awid, mem_bid, mem_arid, mem_rid;
+	wire [7:0]  mem_awlen, mem_arlen;
+	wire [2:0]  mem_awsize, mem_arsize;
+	wire [1:0]  mem_awburst, mem_arburst;
+	wire 		mem_wlast, mem_rlast;
+	wire [1:0]  mem_bresp, mem_rresp;
+	wire [11:0] memsec_bid, memsec_rid;
 	wire [1:0]  s1_bresp, s1_rresp;
 	wire        s1_awvalid, s1_awready; wire [31:0] s1_awaddr;
 	wire        s1_wvalid,  s1_wready;  wire [31:0] s1_wdata; wire [3:0] s1_wstrb;
@@ -311,41 +317,142 @@ module picorv32_wrapper #(
 	assign m_axi_rd_if[0].ruser  = '0;
 	assign s1_rready  = m_axi_rd_if[0].rready;
 
-	// Bridge: interconnect master port 1 -> memory (write)
-	assign s0_awvalid = m_axi_wr_if[1].awvalid;
-	assign s0_awaddr  = m_axi_wr_if[1].awaddr;
-	assign s0_awlen   = m_axi_wr_if[1].awlen;
-	assign s0_awsize  = m_axi_wr_if[1].awsize;
-	assign s0_awburst = m_axi_wr_if[1].awburst;
-	assign s0_awid    = m_axi_wr_if[1].awid[3:0];
-	assign m_axi_wr_if[1].awready = s0_awready;
+	// MEMSEC (TEC-Tree Ascon) sits between the interconnect master port 1 and
+	// the protected memory. The tree/metadata logic runs and metadata is read
+	// from memory, but the data itself is passed through as plaintext.
+	memsec_tectree_ascon #(
+		.C_S_AXI_TARGET_SLAVE_BASE_ADDR (32'h0000_0000),
+		.C_S_AXI_ID_WIDTH              (12),
+		.C_S_AXI_DATA_WIDTH            (32),
+		.C_S_AXI_ADDR_WIDTH            (32),
+		.C_S_AXI_AWUSER_WIDTH          (1),
+		.C_S_AXI_ARUSER_WIDTH          (1),
+		.C_S_AXI_WUSER_WIDTH           (1),
+		.C_S_AXI_RUSER_WIDTH           (1),
+		.C_S_AXI_BUSER_WIDTH           (1),
 
-	assign s0_wvalid  = m_axi_wr_if[1].wvalid;
-	assign s0_wdata   = m_axi_wr_if[1].wdata;
-	assign s0_wstrb   = m_axi_wr_if[1].wstrb;
-	assign s0_wlast   = m_axi_wr_if[1].wlast;
-	assign m_axi_wr_if[1].wready = s0_wready;
+		.C_M_AXI_ID_WIDTH              (4),
+		.C_M_AXI_DATA_WIDTH            (32),
+		.C_M_AXI_ADDR_WIDTH            (32),
+		.C_M_AXI_AWUSER_WIDTH          (1),
+		.C_M_AXI_ARUSER_WIDTH          (1),
+		.C_M_AXI_WUSER_WIDTH           (1),
+		.C_M_AXI_RUSER_WIDTH           (1),
+		.C_M_AXI_BUSER_WIDTH           (1),
 
-	assign m_axi_wr_if[1].bvalid = s0_bvalid;
-	assign m_axi_wr_if[1].bid    = {4'b0, s0_bid};
-	assign m_axi_wr_if[1].bresp  = s0_bresp;
-	assign s0_bready  = m_axi_wr_if[1].bready;
+		.DATA_BLOCK_SIZE               (64),
+		.DATA_MEMORY_SIZE              (MEMSEC_DATA_SIZE),
+		.TREE_ARITY                    (MEMSEC_TREE_ARITY),
+		.TREE_ROOTS                    (MEMSEC_TREE_ROOTS),
+		.TREE_NODE_CACHE_SIZE          (MEMSEC_TREE_NODE_CACHE)
+	) memsec (
+		.s_axi_aclk    (clk),
+		.s_axi_aresetn (resetn),
 
-	// Bridge: interconnect master port 1 -> memory (read)
-	assign s0_arvalid = m_axi_rd_if[1].arvalid;
-	assign s0_araddr  = m_axi_rd_if[1].araddr;
-	assign s0_arlen   = m_axi_rd_if[1].arlen;
-	assign s0_arsize  = m_axi_rd_if[1].arsize;
-	assign s0_arburst = m_axi_rd_if[1].arburst;
-	assign s0_arid    = m_axi_rd_if[1].arid[3:0];
-	assign m_axi_rd_if[1].arready = s0_arready;
+		.s_axi_awid     ({4'b0, m_axi_wr_if[1].awid}),
+		.s_axi_awaddr   (m_axi_wr_if[1].awaddr),
+		.s_axi_awlen    (m_axi_wr_if[1].awlen),
+		.s_axi_awsize   (m_axi_wr_if[1].awsize),
+		.s_axi_awburst  (m_axi_wr_if[1].awburst),
+		.s_axi_awlock   (m_axi_wr_if[1].awlock),
+		.s_axi_awcache  (m_axi_wr_if[1].awcache),
+		.s_axi_awprot   (m_axi_wr_if[1].awprot),
+		.s_axi_awqos    (m_axi_wr_if[1].awqos),
+		.s_axi_awregion (m_axi_wr_if[1].awregion),
+		.s_axi_awuser   (1'b0),
+		.s_axi_awvalid  (m_axi_wr_if[1].awvalid),
+		.s_axi_awready  (m_axi_wr_if[1].awready),
 
-	assign m_axi_rd_if[1].rvalid = s0_rvalid;
-	assign m_axi_rd_if[1].rdata  = s0_rdata;
-	assign m_axi_rd_if[1].rresp  = s0_rresp;
-	assign m_axi_rd_if[1].rlast  = s0_rlast;
-	assign m_axi_rd_if[1].rid    = {4'b0, s0_rid};
-	assign s0_rready  = m_axi_rd_if[1].rready;
+		.s_axi_wdata    (m_axi_wr_if[1].wdata),
+		.s_axi_wstrb    (m_axi_wr_if[1].wstrb),
+		.s_axi_wlast    (m_axi_wr_if[1].wlast),
+		.s_axi_wuser    (1'b0),
+		.s_axi_wvalid   (m_axi_wr_if[1].wvalid),
+		.s_axi_wready   (m_axi_wr_if[1].wready),
+
+		.s_axi_bid      (memsec_bid),
+		.s_axi_bresp    (m_axi_wr_if[1].bresp),
+		.s_axi_buser    (m_axi_wr_if[1].buser),
+		.s_axi_bvalid   (m_axi_wr_if[1].bvalid),
+		.s_axi_bready   (m_axi_wr_if[1].bready),
+
+		.s_axi_arid     ({4'b0, m_axi_rd_if[1].arid}),
+		.s_axi_araddr   (m_axi_rd_if[1].araddr),
+		.s_axi_arlen    (m_axi_rd_if[1].arlen),
+		.s_axi_arsize   (m_axi_rd_if[1].arsize),
+		.s_axi_arburst  (m_axi_rd_if[1].arburst),
+		.s_axi_arlock   (m_axi_rd_if[1].arlock),
+		.s_axi_arcache  (m_axi_rd_if[1].arcache),
+		.s_axi_arprot   (m_axi_rd_if[1].arprot),
+		.s_axi_arqos    (m_axi_rd_if[1].arqos),
+		.s_axi_arregion (m_axi_rd_if[1].arregion),
+		.s_axi_aruser   (1'b0),
+		.s_axi_arvalid  (m_axi_rd_if[1].arvalid),
+		.s_axi_arready  (m_axi_rd_if[1].arready),
+
+		.s_axi_rid      (memsec_rid),
+		.s_axi_rdata    (m_axi_rd_if[1].rdata),
+		.s_axi_rresp    (m_axi_rd_if[1].rresp),
+		.s_axi_rlast    (m_axi_rd_if[1].rlast),
+		.s_axi_ruser    (m_axi_rd_if[1].ruser),
+		.s_axi_rvalid   (m_axi_rd_if[1].rvalid),
+		.s_axi_rready   (m_axi_rd_if[1].rready),
+
+		.m_axi_aclk    (clk),
+		.m_axi_aresetn (resetn),
+
+		.m_axi_awid     (mem_awid),
+		.m_axi_awaddr   (mem_awaddr),
+		.m_axi_awlen    (mem_awlen),
+		.m_axi_awsize   (mem_awsize),
+		.m_axi_awburst  (mem_awburst),
+		.m_axi_awlock   (),
+		.m_axi_awcache  (),
+		.m_axi_awprot   (),
+		.m_axi_awqos    (),
+		.m_axi_awregion (),
+		.m_axi_awuser   (),
+		.m_axi_awvalid  (mem_awvalid),
+		.m_axi_awready  (mem_awready),
+
+		.m_axi_wdata    (mem_wdata),
+		.m_axi_wstrb    (mem_wstrb),
+		.m_axi_wlast    (mem_wlast),
+		.m_axi_wuser    (),
+		.m_axi_wvalid   (mem_wvalid),
+		.m_axi_wready   (mem_wready),
+
+		.m_axi_bid      (mem_bid),
+		.m_axi_bresp    (mem_bresp),
+		.m_axi_buser    (1'b0),
+		.m_axi_bvalid   (mem_bvalid),
+		.m_axi_bready   (mem_bready),
+
+		.m_axi_arid     (mem_arid),
+		.m_axi_araddr   (mem_araddr),
+		.m_axi_arlen    (mem_arlen),
+		.m_axi_arsize   (mem_arsize),
+		.m_axi_arburst  (mem_arburst),
+		.m_axi_arlock   (),
+		.m_axi_arcache  (),
+		.m_axi_arprot   (),
+		.m_axi_arqos    (),
+		.m_axi_arregion (),
+		.m_axi_aruser   (),
+		.m_axi_arvalid  (mem_arvalid),
+		.m_axi_arready  (mem_arready),
+
+		.m_axi_rid      (mem_rid),
+		.m_axi_rdata    (mem_rdata),
+		.m_axi_rresp    (mem_rresp),
+		.m_axi_rlast    (mem_rlast),
+		.m_axi_ruser    (1'b0),
+		.m_axi_rvalid   (mem_rvalid),
+		.m_axi_rready   (mem_rready)
+	);
+
+	assign m_axi_wr_if[1].bid = memsec_bid[7:0];
+	assign m_axi_rd_if[1].rid = memsec_rid[7:0];
 
 	// Bridge: interconnect master port 2 -> DMA config (AXI-Lite, write)
 	assign s2_awvalid = m_axi_wr_if[2].awvalid;
@@ -382,7 +489,10 @@ module picorv32_wrapper #(
 		.ADDR_W(32),
 		.M_REGIONS(2),
 		.M_BASE_ADDR({32'h40000000, 32'h40000000, 32'h20000000, 32'h00000000, 32'h00000000, 32'h30000000}),
-		.M_ADDR_W({32'd0, 32'd16, 32'd28, 32'd29, 32'd0, 32'd16})
+		// Region index = master*M_REGIONS + region. Entry 2 (master 1, region 0)
+		// is the 0x20000000 alias of the memory window; memsec derives the
+		// physical address from a single slave base, so the alias is disabled.
+		.M_ADDR_W({32'd0, 32'd16, 32'd0, 32'd29, 32'd0, 32'd16})
 	) axi_intercon (
 		.clk(clk), .rst(!resetn),
 
@@ -423,35 +533,35 @@ module picorv32_wrapper #(
 		.rstb_busy(),          // output wire rstb_busy
 		.s_aclk(clk),                // input wire s_aclk
 		.s_aresetn(resetn),          // input wire s_aresetn
-		.s_axi_awid(s0_awid),        // input wire [3 : 0] s_axi_awid
-		.s_axi_awaddr(s0_awaddr),    // input wire [31 : 0] s_axi_awaddr
-		.s_axi_awlen(s0_awlen),      // input wire [7 : 0] s_axi_awlen
-		.s_axi_awsize(s0_awsize),    // input wire [2 : 0] s_axi_awsize
-		.s_axi_awburst(s0_awburst),  // input wire [1 : 0] s_axi_awburst
-		.s_axi_awvalid(s0_awvalid),  // input wire s_axi_awvalid
-		.s_axi_awready(s0_awready),  // output wire s_axi_awready
-		.s_axi_wdata(s0_wdata),      // input wire [31 : 0] s_axi_wdata
-		.s_axi_wstrb(s0_wstrb),      // input wire [3 : 0] s_axi_wstrb
-		.s_axi_wlast(s0_wlast),      // input wire s_axi_wlast
-		.s_axi_wvalid(s0_wvalid),    // input wire s_axi_wvalid
-		.s_axi_wready(s0_wready),    // output wire s_axi_wready
-		.s_axi_bid(s0_bid),          // output wire [3 : 0] s_axi_bid
-		.s_axi_bresp(s0_bresp),      // output wire [1 : 0] s_axi_bresp
-		.s_axi_bvalid(s0_bvalid),    // output wire s_axi_bvalid
-		.s_axi_bready(s0_bready),    // input wire s_axi_bready
-		.s_axi_arid(s0_arid),        // input wire [3 : 0] s_axi_arid
-		.s_axi_araddr(s0_araddr),    // input wire [31 : 0] s_axi_araddr
-		.s_axi_arlen(s0_arlen),      // input wire [7 : 0] s_axi_arlen
-		.s_axi_arsize(s0_arsize),    // input wire [2 : 0] s_axi_arsize
-		.s_axi_arburst(s0_arburst),  // input wire [1 : 0] s_axi_arburst
-		.s_axi_arvalid(s0_arvalid),  // input wire s_axi_arvalid
-		.s_axi_arready(s0_arready),  // output wire s_axi_arready
-		.s_axi_rid(s0_rid),          // output wire [3 : 0] s_axi_rid
-		.s_axi_rdata(s0_rdata),      // output wire [31 : 0] s_axi_rdata
-		.s_axi_rresp(s0_rresp),      // output wire [1 : 0] s_axi_rresp
-		.s_axi_rlast(s0_rlast),      // output wire s_axi_rlast
-		.s_axi_rvalid(s0_rvalid),    // output wire s_axi_rvalid
-		.s_axi_rready(s0_rready)    // input wire s_axi_rready
+		.s_axi_awid(mem_awid),        // input wire [3 : 0] s_axi_awid
+		.s_axi_awaddr(mem_awaddr),    // input wire [31 : 0] s_axi_awaddr
+		.s_axi_awlen(mem_awlen),      // input wire [7 : 0] s_axi_awlen
+		.s_axi_awsize(mem_awsize),    // input wire [2 : 0] s_axi_awsize
+		.s_axi_awburst(mem_awburst),  // input wire [1 : 0] s_axi_awburst
+		.s_axi_awvalid(mem_awvalid),  // input wire s_axi_awvalid
+		.s_axi_awready(mem_awready),  // output wire s_axi_awready
+		.s_axi_wdata(mem_wdata),      // input wire [31 : 0] s_axi_wdata
+		.s_axi_wstrb(mem_wstrb),      // input wire [3 : 0] s_axi_wstrb
+		.s_axi_wlast(mem_wlast),      // input wire s_axi_wlast
+		.s_axi_wvalid(mem_wvalid),    // input wire s_axi_wvalid
+		.s_axi_wready(mem_wready),    // output wire s_axi_wready
+		.s_axi_bid(mem_bid),          // output wire [3 : 0] s_axi_bid
+		.s_axi_bresp(mem_bresp),      // output wire [1 : 0] s_axi_bresp
+		.s_axi_bvalid(mem_bvalid),    // output wire s_axi_bvalid
+		.s_axi_bready(mem_bready),    // input wire s_axi_bready
+		.s_axi_arid(mem_arid),        // input wire [3 : 0] s_axi_arid
+		.s_axi_araddr(mem_araddr),    // input wire [31 : 0] s_axi_araddr
+		.s_axi_arlen(mem_arlen),      // input wire [7 : 0] s_axi_arlen
+		.s_axi_arsize(mem_arsize),    // input wire [2 : 0] s_axi_arsize
+		.s_axi_arburst(mem_arburst),  // input wire [1 : 0] s_axi_arburst
+		.s_axi_arvalid(mem_arvalid),  // input wire s_axi_arvalid
+		.s_axi_arready(mem_arready),  // output wire s_axi_arready
+		.s_axi_rid(mem_rid),          // output wire [3 : 0] s_axi_rid
+		.s_axi_rdata(mem_rdata),      // output wire [31 : 0] s_axi_rdata
+		.s_axi_rresp(mem_rresp),      // output wire [1 : 0] s_axi_rresp
+		.s_axi_rlast(mem_rlast),      // output wire s_axi_rlast
+		.s_axi_rvalid(mem_rvalid),    // output wire s_axi_rvalid
+		.s_axi_rready(mem_rready)    // input wire s_axi_rready
 		);
 	axi_cdma_0 dma0 (
 		.m_axi_aclk(clk),                  // input wire m_axi_aclk

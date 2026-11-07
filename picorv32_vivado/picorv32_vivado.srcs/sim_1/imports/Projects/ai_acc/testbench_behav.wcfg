@@ -9,24 +9,28 @@
             <top_module name="axi_cdma_pkg" />
             <top_module name="glbl" />
             <top_module name="lib_pkg" />
+            <top_module name="memsec_config" />
+            <top_module name="memsec_functions" />
+            <top_module name="memsec_pkg" />
             <top_module name="testbench" />
             <top_module name="vcomponents" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="202,596.800 ns"></ZoomStartTime>
-      <ZoomEndTime time="202,625.001 ns"></ZoomEndTime>
-      <Cursor1Time time="202,640.000 ns"></Cursor1Time>
+      <ZoomStartTime time="82.110000 us"></ZoomStartTime>
+      <ZoomEndTime time="103.050001 us"></ZoomEndTime>
+      <Cursor1Time time="86.550000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="265"></NameColumnWidth>
-      <ValueColumnWidth column_width="239"></ValueColumnWidth>
+      <NameColumnWidth column_width="236"></NameColumnWidth>
+      <ValueColumnWidth column_width="253"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="8" />
+   <WVObjectSize size="18" />
    <wave_markers>
       <marker time="123050000" label="" />
-      <marker time="486630000" label="" />
+      <marker time="314540000" label="" />
+      <marker time="94310000" label="" />
    </wave_markers>
    <wvobject fp_name="group96" type="group">
       <obj_property name="label">pe_array_controller</obj_property>
@@ -468,10 +472,7 @@
    <wvobject fp_name="group404" type="group">
       <obj_property name="label">Picorv32</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject fp_name="/testbench/top/printing_statement" type="logic">
-         <obj_property name="ElementShortName">printing_statement</obj_property>
-         <obj_property name="ObjectShortName">printing_statement</obj_property>
-      </wvobject>
+      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/testbench/top/uut/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -527,30 +528,38 @@
       <wvobject fp_name="/testbench/top/uut/mem_axi_arvalid" type="logic">
          <obj_property name="ElementShortName">mem_axi_arvalid</obj_property>
          <obj_property name="ObjectShortName">mem_axi_arvalid</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_araddr" type="array">
+         <obj_property name="ElementShortName">mem_axi_araddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_araddr[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject fp_name="/testbench/top/uut/mem_axi_arready" type="logic">
          <obj_property name="ElementShortName">mem_axi_arready</obj_property>
          <obj_property name="ObjectShortName">mem_axi_arready</obj_property>
       </wvobject>
-      <wvobject fp_name="/testbench/top/uut/mem_axi_araddr" type="array">
-         <obj_property name="ElementShortName">mem_axi_araddr[31:0]</obj_property>
-         <obj_property name="ObjectShortName">mem_axi_araddr[31:0]</obj_property>
-      </wvobject>
       <wvobject fp_name="/testbench/top/uut/mem_axi_arprot" type="array">
          <obj_property name="ElementShortName">mem_axi_arprot[2:0]</obj_property>
          <obj_property name="ObjectShortName">mem_axi_arprot[2:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/testbench/top/uut/mem_axi_rvalid" type="logic">
-         <obj_property name="ElementShortName">mem_axi_rvalid</obj_property>
-         <obj_property name="ObjectShortName">mem_axi_rvalid</obj_property>
       </wvobject>
       <wvobject fp_name="/testbench/top/uut/mem_axi_rready" type="logic">
          <obj_property name="ElementShortName">mem_axi_rready</obj_property>
          <obj_property name="ObjectShortName">mem_axi_rready</obj_property>
       </wvobject>
+      <wvobject fp_name="/testbench/top/uut/mem_axi_rvalid" type="logic">
+         <obj_property name="ElementShortName">mem_axi_rvalid</obj_property>
+         <obj_property name="ObjectShortName">mem_axi_rvalid</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
       <wvobject fp_name="/testbench/top/uut/mem_axi_rdata" type="array">
          <obj_property name="ElementShortName">mem_axi_rdata[31:0]</obj_property>
          <obj_property name="ObjectShortName">mem_axi_rdata[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
       <wvobject fp_name="/testbench/top/uut/pcpi_valid" type="logic">
          <obj_property name="ElementShortName">pcpi_valid</obj_property>
@@ -1160,7 +1169,6 @@
    <wvobject fp_name="group315" type="group">
       <obj_property name="label">pe_array_ctrler</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/testbench/top/accel/pe_array_controller_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
@@ -1347,5 +1355,994 @@
          <obj_property name="ElementShortName">DONE[3:0]</obj_property>
          <obj_property name="ObjectShortName">DONE[3:0]</obj_property>
       </wvobject>
+   </wvobject>
+   <wvobject fp_name="group559" type="group">
+      <obj_property name="label">memsec</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_aclk" type="logic">
+         <obj_property name="ElementShortName">s_axi_aclk</obj_property>
+         <obj_property name="ObjectShortName">s_axi_aclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_aresetn" type="logic">
+         <obj_property name="ElementShortName">s_axi_aresetn</obj_property>
+         <obj_property name="ObjectShortName">s_axi_aresetn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_awid" type="array">
+         <obj_property name="ElementShortName">s_axi_awid[11:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awid[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_awaddr" type="array">
+         <obj_property name="ElementShortName">s_axi_awaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_awlen" type="array">
+         <obj_property name="ElementShortName">s_axi_awlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_awsize" type="array">
+         <obj_property name="ElementShortName">s_axi_awsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_awburst" type="array">
+         <obj_property name="ElementShortName">s_axi_awburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_awlock" type="logic">
+         <obj_property name="ElementShortName">s_axi_awlock</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awlock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_awcache" type="array">
+         <obj_property name="ElementShortName">s_axi_awcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_awprot" type="array">
+         <obj_property name="ElementShortName">s_axi_awprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_awqos" type="array">
+         <obj_property name="ElementShortName">s_axi_awqos[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awqos[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_awregion" type="array">
+         <obj_property name="ElementShortName">s_axi_awregion[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awregion[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_awuser" type="array">
+         <obj_property name="ElementShortName">s_axi_awuser[0:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awuser[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_awvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_awvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_awready" type="logic">
+         <obj_property name="ElementShortName">s_axi_awready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_awready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_wdata" type="array">
+         <obj_property name="ElementShortName">s_axi_wdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_wstrb" type="array">
+         <obj_property name="ElementShortName">s_axi_wstrb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wstrb[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_wlast" type="logic">
+         <obj_property name="ElementShortName">s_axi_wlast</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_wuser" type="array">
+         <obj_property name="ElementShortName">s_axi_wuser[0:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wuser[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_wvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_wvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_wready" type="logic">
+         <obj_property name="ElementShortName">s_axi_wready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_wready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_bid" type="array">
+         <obj_property name="ElementShortName">s_axi_bid[11:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_bid[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_bresp" type="array">
+         <obj_property name="ElementShortName">s_axi_bresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_bresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_buser" type="array">
+         <obj_property name="ElementShortName">s_axi_buser[0:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_buser[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_bvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_bvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_bvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_bready" type="logic">
+         <obj_property name="ElementShortName">s_axi_bready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_bready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_arid" type="array">
+         <obj_property name="ElementShortName">s_axi_arid[11:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arid[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_arlen" type="array">
+         <obj_property name="ElementShortName">s_axi_arlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_arsize" type="array">
+         <obj_property name="ElementShortName">s_axi_arsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_arburst" type="array">
+         <obj_property name="ElementShortName">s_axi_arburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_arlock" type="logic">
+         <obj_property name="ElementShortName">s_axi_arlock</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arlock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_arcache" type="array">
+         <obj_property name="ElementShortName">s_axi_arcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_arprot" type="array">
+         <obj_property name="ElementShortName">s_axi_arprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_arqos" type="array">
+         <obj_property name="ElementShortName">s_axi_arqos[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arqos[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_arregion" type="array">
+         <obj_property name="ElementShortName">s_axi_arregion[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arregion[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_aruser" type="array">
+         <obj_property name="ElementShortName">s_axi_aruser[0:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_aruser[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_arready" type="logic">
+         <obj_property name="ElementShortName">s_axi_arready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_rid" type="array">
+         <obj_property name="ElementShortName">s_axi_rid[11:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rid[11:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_rdata" type="array">
+         <obj_property name="ElementShortName">s_axi_rdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_rresp" type="array">
+         <obj_property name="ElementShortName">s_axi_rresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_rlast" type="logic">
+         <obj_property name="ElementShortName">s_axi_rlast</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_ruser" type="array">
+         <obj_property name="ElementShortName">s_axi_ruser[0:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_ruser[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_rvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_rvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_rready" type="logic">
+         <obj_property name="ElementShortName">s_axi_rready</obj_property>
+         <obj_property name="ObjectShortName">s_axi_rready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_arvalid" type="logic">
+         <obj_property name="ElementShortName">s_axi_arvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axi_arvalid</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/s_axi_araddr" type="array">
+         <obj_property name="ElementShortName">s_axi_araddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axi_araddr[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_aclk" type="logic">
+         <obj_property name="ElementShortName">m_axi_aclk</obj_property>
+         <obj_property name="ObjectShortName">m_axi_aclk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_araddr" type="array">
+         <obj_property name="ElementShortName">m_axi_araddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_araddr[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_arvalid" type="logic">
+         <obj_property name="ElementShortName">m_axi_arvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axi_arvalid</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_rvalid" type="logic">
+         <obj_property name="ElementShortName">m_axi_rvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axi_rvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_rdata" type="array">
+         <obj_property name="ElementShortName">m_axi_rdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_rdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_aresetn" type="logic">
+         <obj_property name="ElementShortName">m_axi_aresetn</obj_property>
+         <obj_property name="ObjectShortName">m_axi_aresetn</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_arid" type="array">
+         <obj_property name="ElementShortName">m_axi_arid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_arid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_arlen" type="array">
+         <obj_property name="ElementShortName">m_axi_arlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_arlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_arsize" type="array">
+         <obj_property name="ElementShortName">m_axi_arsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_arsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_arburst" type="array">
+         <obj_property name="ElementShortName">m_axi_arburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_arburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_arlock" type="logic">
+         <obj_property name="ElementShortName">m_axi_arlock</obj_property>
+         <obj_property name="ObjectShortName">m_axi_arlock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_arcache" type="array">
+         <obj_property name="ElementShortName">m_axi_arcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_arcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_arprot" type="array">
+         <obj_property name="ElementShortName">m_axi_arprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_arprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_arqos" type="array">
+         <obj_property name="ElementShortName">m_axi_arqos[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_arqos[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_arregion" type="array">
+         <obj_property name="ElementShortName">m_axi_arregion[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_arregion[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_aruser" type="array">
+         <obj_property name="ElementShortName">m_axi_aruser[0:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_aruser[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_arready" type="logic">
+         <obj_property name="ElementShortName">m_axi_arready</obj_property>
+         <obj_property name="ObjectShortName">m_axi_arready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_rid" type="array">
+         <obj_property name="ElementShortName">m_axi_rid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_rid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_rresp" type="array">
+         <obj_property name="ElementShortName">m_axi_rresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_rresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_rlast" type="logic">
+         <obj_property name="ElementShortName">m_axi_rlast</obj_property>
+         <obj_property name="ObjectShortName">m_axi_rlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_ruser" type="array">
+         <obj_property name="ElementShortName">m_axi_ruser[0:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_ruser[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_rready" type="logic">
+         <obj_property name="ElementShortName">m_axi_rready</obj_property>
+         <obj_property name="ObjectShortName">m_axi_rready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_awid" type="array">
+         <obj_property name="ElementShortName">m_axi_awid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_awid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_awaddr" type="array">
+         <obj_property name="ElementShortName">m_axi_awaddr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_awaddr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_awlen" type="array">
+         <obj_property name="ElementShortName">m_axi_awlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_awlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_awsize" type="array">
+         <obj_property name="ElementShortName">m_axi_awsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_awsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_awburst" type="array">
+         <obj_property name="ElementShortName">m_axi_awburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_awburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_awlock" type="logic">
+         <obj_property name="ElementShortName">m_axi_awlock</obj_property>
+         <obj_property name="ObjectShortName">m_axi_awlock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_awcache" type="array">
+         <obj_property name="ElementShortName">m_axi_awcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_awcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_awprot" type="array">
+         <obj_property name="ElementShortName">m_axi_awprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_awprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_awqos" type="array">
+         <obj_property name="ElementShortName">m_axi_awqos[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_awqos[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_awregion" type="array">
+         <obj_property name="ElementShortName">m_axi_awregion[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_awregion[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_awuser" type="array">
+         <obj_property name="ElementShortName">m_axi_awuser[0:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_awuser[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_awvalid" type="logic">
+         <obj_property name="ElementShortName">m_axi_awvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axi_awvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_awready" type="logic">
+         <obj_property name="ElementShortName">m_axi_awready</obj_property>
+         <obj_property name="ObjectShortName">m_axi_awready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_wdata" type="array">
+         <obj_property name="ElementShortName">m_axi_wdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_wstrb" type="array">
+         <obj_property name="ElementShortName">m_axi_wstrb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wstrb[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_wlast" type="logic">
+         <obj_property name="ElementShortName">m_axi_wlast</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wlast</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_wuser" type="array">
+         <obj_property name="ElementShortName">m_axi_wuser[0:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wuser[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_wvalid" type="logic">
+         <obj_property name="ElementShortName">m_axi_wvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_wready" type="logic">
+         <obj_property name="ElementShortName">m_axi_wready</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_bid" type="array">
+         <obj_property name="ElementShortName">m_axi_bid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_bid[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_bresp" type="array">
+         <obj_property name="ElementShortName">m_axi_bresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_bresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_buser" type="array">
+         <obj_property name="ElementShortName">m_axi_buser[0:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_buser[0:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_bvalid" type="logic">
+         <obj_property name="ElementShortName">m_axi_bvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axi_bvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/m_axi_bready" type="logic">
+         <obj_property name="ElementShortName">m_axi_bready</obj_property>
+         <obj_property name="ObjectShortName">m_axi_bready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/read_request" type="array">
+         <obj_property name="ElementShortName">read_request</obj_property>
+         <obj_property name="ObjectShortName">read_request</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/read_request_crypto" type="array">
+         <obj_property name="ElementShortName">read_request_crypto</obj_property>
+         <obj_property name="ObjectShortName">read_request_crypto</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/write_request" type="array">
+         <obj_property name="ElementShortName">write_request</obj_property>
+         <obj_property name="ObjectShortName">write_request</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/write_request_crypto" type="array">
+         <obj_property name="ElementShortName">write_request_crypto</obj_property>
+         <obj_property name="ObjectShortName">write_request_crypto</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/request" type="array">
+         <obj_property name="ElementShortName">request</obj_property>
+         <obj_property name="ObjectShortName">request</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/read_request_ready" type="logic">
+         <obj_property name="ElementShortName">read_request_ready</obj_property>
+         <obj_property name="ObjectShortName">read_request_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/read_request_crypto_ready" type="logic">
+         <obj_property name="ElementShortName">read_request_crypto_ready</obj_property>
+         <obj_property name="ObjectShortName">read_request_crypto_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/write_request_ready" type="logic">
+         <obj_property name="ElementShortName">write_request_ready</obj_property>
+         <obj_property name="ObjectShortName">write_request_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/write_request_crypto_ready" type="logic">
+         <obj_property name="ElementShortName">write_request_crypto_ready</obj_property>
+         <obj_property name="ObjectShortName">write_request_crypto_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/request_ready" type="logic">
+         <obj_property name="ElementShortName">request_ready</obj_property>
+         <obj_property name="ObjectShortName">request_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/registered_request" type="array">
+         <obj_property name="ElementShortName">registered_request</obj_property>
+         <obj_property name="ObjectShortName">registered_request</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/tree_request" type="array">
+         <obj_property name="ElementShortName">tree_request</obj_property>
+         <obj_property name="ObjectShortName">tree_request</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/registered_request_ready" type="logic">
+         <obj_property name="ElementShortName">registered_request_ready</obj_property>
+         <obj_property name="ObjectShortName">registered_request_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/tree_request_ready" type="logic">
+         <obj_property name="ElementShortName">tree_request_ready</obj_property>
+         <obj_property name="ObjectShortName">tree_request_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/split_request" type="array">
+         <obj_property name="ElementShortName">split_request</obj_property>
+         <obj_property name="ObjectShortName">split_request</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/split_request_ready" type="logic">
+         <obj_property name="ElementShortName">split_request_ready</obj_property>
+         <obj_property name="ObjectShortName">split_request_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/aligned_tree_request" type="array">
+         <obj_property name="ElementShortName">aligned_tree_request</obj_property>
+         <obj_property name="ObjectShortName">aligned_tree_request</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/aligned_tree_request_ready" type="logic">
+         <obj_property name="ElementShortName">aligned_tree_request_ready</obj_property>
+         <obj_property name="ObjectShortName">aligned_tree_request_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_request_issued" type="array">
+         <obj_property name="ElementShortName">cache_request_issued</obj_property>
+         <obj_property name="ObjectShortName">cache_request_issued</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_request_issued_ready" type="logic">
+         <obj_property name="ElementShortName">cache_request_issued_ready</obj_property>
+         <obj_property name="ObjectShortName">cache_request_issued_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_request_issued_reg" type="array">
+         <obj_property name="ElementShortName">cache_request_issued_reg</obj_property>
+         <obj_property name="ObjectShortName">cache_request_issued_reg</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_request_issued_reg_ready" type="logic">
+         <obj_property name="ElementShortName">cache_request_issued_reg_ready</obj_property>
+         <obj_property name="ObjectShortName">cache_request_issued_reg_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_request_fetched" type="array">
+         <obj_property name="ElementShortName">cache_request_fetched</obj_property>
+         <obj_property name="ObjectShortName">cache_request_fetched</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_request_fetched_ready" type="logic">
+         <obj_property name="ElementShortName">cache_request_fetched_ready</obj_property>
+         <obj_property name="ObjectShortName">cache_request_fetched_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/pre_guard_reg" type="array">
+         <obj_property name="ElementShortName">pre_guard_reg</obj_property>
+         <obj_property name="ObjectShortName">pre_guard_reg</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/pre_guard_reg_ready" type="logic">
+         <obj_property name="ElementShortName">pre_guard_reg_ready</obj_property>
+         <obj_property name="ObjectShortName">pre_guard_reg_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/request_locker" type="array">
+         <obj_property name="ElementShortName">request_locker</obj_property>
+         <obj_property name="ObjectShortName">request_locker</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/request_locker_ready" type="logic">
+         <obj_property name="ElementShortName">request_locker_ready</obj_property>
+         <obj_property name="ObjectShortName">request_locker_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/issue_to_reg" type="array">
+         <obj_property name="ElementShortName">issue_to_reg</obj_property>
+         <obj_property name="ObjectShortName">issue_to_reg</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/issue_to_reg_ready" type="logic">
+         <obj_property name="ElementShortName">issue_to_reg_ready</obj_property>
+         <obj_property name="ObjectShortName">issue_to_reg_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/reg_to_fetch" type="array">
+         <obj_property name="ElementShortName">reg_to_fetch</obj_property>
+         <obj_property name="ObjectShortName">reg_to_fetch</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/reg_to_fetch_ready" type="logic">
+         <obj_property name="ElementShortName">reg_to_fetch_ready</obj_property>
+         <obj_property name="ObjectShortName">reg_to_fetch_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/fetch_to_inj" type="array">
+         <obj_property name="ElementShortName">fetch_to_inj</obj_property>
+         <obj_property name="ObjectShortName">fetch_to_inj</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/fetch_to_inj_ready" type="logic">
+         <obj_property name="ElementShortName">fetch_to_inj_ready</obj_property>
+         <obj_property name="ObjectShortName">fetch_to_inj_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/inj_to_dec" type="array">
+         <obj_property name="ElementShortName">inj_to_dec</obj_property>
+         <obj_property name="ObjectShortName">inj_to_dec</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/inj_to_dec_ready" type="logic">
+         <obj_property name="ElementShortName">inj_to_dec_ready</obj_property>
+         <obj_property name="ObjectShortName">inj_to_dec_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/dec_to_init" type="array">
+         <obj_property name="ElementShortName">dec_to_init</obj_property>
+         <obj_property name="ObjectShortName">dec_to_init</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/dec_to_init_ready" type="logic">
+         <obj_property name="ElementShortName">dec_to_init_ready</obj_property>
+         <obj_property name="ObjectShortName">dec_to_init_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/plain_request" type="array">
+         <obj_property name="ElementShortName">plain_request</obj_property>
+         <obj_property name="ObjectShortName">plain_request</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/plain_request_read" type="array">
+         <obj_property name="ElementShortName">plain_request_read</obj_property>
+         <obj_property name="ObjectShortName">plain_request_read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/plain_request_write" type="array">
+         <obj_property name="ElementShortName">plain_request_write</obj_property>
+         <obj_property name="ObjectShortName">plain_request_write</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/plain_request_ready" type="logic">
+         <obj_property name="ElementShortName">plain_request_ready</obj_property>
+         <obj_property name="ObjectShortName">plain_request_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/plain_request_read_ready" type="logic">
+         <obj_property name="ElementShortName">plain_request_read_ready</obj_property>
+         <obj_property name="ObjectShortName">plain_request_read_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/plain_request_write_ready" type="logic">
+         <obj_property name="ElementShortName">plain_request_write_ready</obj_property>
+         <obj_property name="ObjectShortName">plain_request_write_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/plain_request_nonce" type="array">
+         <obj_property name="ElementShortName">plain_request_nonce</obj_property>
+         <obj_property name="ObjectShortName">plain_request_nonce</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/plain_request_nonce_ready" type="logic">
+         <obj_property name="ElementShortName">plain_request_nonce_ready</obj_property>
+         <obj_property name="ObjectShortName">plain_request_nonce_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/plain_request_write_access" type="logic">
+         <obj_property name="ElementShortName">plain_request_write_access</obj_property>
+         <obj_property name="ObjectShortName">plain_request_write_access</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/filtered_read_request" type="array">
+         <obj_property name="ElementShortName">filtered_read_request</obj_property>
+         <obj_property name="ObjectShortName">filtered_read_request</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/filtered_read_request_ready" type="logic">
+         <obj_property name="ElementShortName">filtered_read_request_ready</obj_property>
+         <obj_property name="ObjectShortName">filtered_read_request_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cached_read_request" type="array">
+         <obj_property name="ElementShortName">cached_read_request</obj_property>
+         <obj_property name="ObjectShortName">cached_read_request</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cached_read_request_ready" type="logic">
+         <obj_property name="ElementShortName">cached_read_request_ready</obj_property>
+         <obj_property name="ObjectShortName">cached_read_request_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/modified_request" type="array">
+         <obj_property name="ElementShortName">modified_request</obj_property>
+         <obj_property name="ObjectShortName">modified_request</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/data_to_treemod" type="array">
+         <obj_property name="ElementShortName">data_to_treemod</obj_property>
+         <obj_property name="ObjectShortName">data_to_treemod</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/treemod_to_metamod" type="array">
+         <obj_property name="ElementShortName">treemod_to_metamod</obj_property>
+         <obj_property name="ObjectShortName">treemod_to_metamod</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/metamod_to_write_issue" type="array">
+         <obj_property name="ElementShortName">metamod_to_write_issue</obj_property>
+         <obj_property name="ObjectShortName">metamod_to_write_issue</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/data_to_treemod_ready" type="logic">
+         <obj_property name="ElementShortName">data_to_treemod_ready</obj_property>
+         <obj_property name="ObjectShortName">data_to_treemod_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/treemod_to_metamod_ready" type="logic">
+         <obj_property name="ElementShortName">treemod_to_metamod_ready</obj_property>
+         <obj_property name="ObjectShortName">treemod_to_metamod_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/metamod_to_write_issue_ready" type="logic">
+         <obj_property name="ElementShortName">metamod_to_write_issue_ready</obj_property>
+         <obj_property name="ObjectShortName">metamod_to_write_issue_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/modified_request_ready" type="logic">
+         <obj_property name="ElementShortName">modified_request_ready</obj_property>
+         <obj_property name="ObjectShortName">modified_request_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_treemod_valid" type="logic">
+         <obj_property name="ElementShortName">nonce_treemod_valid</obj_property>
+         <obj_property name="ObjectShortName">nonce_treemod_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_metamod_valid" type="logic">
+         <obj_property name="ElementShortName">nonce_metamod_valid</obj_property>
+         <obj_property name="ObjectShortName">nonce_metamod_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_treemod_ready" type="logic">
+         <obj_property name="ElementShortName">nonce_treemod_ready</obj_property>
+         <obj_property name="ObjectShortName">nonce_treemod_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_metamod_ready" type="logic">
+         <obj_property name="ElementShortName">nonce_metamod_ready</obj_property>
+         <obj_property name="ObjectShortName">nonce_metamod_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/write_issue_to_reg" type="array">
+         <obj_property name="ElementShortName">write_issue_to_reg</obj_property>
+         <obj_property name="ObjectShortName">write_issue_to_reg</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/write_issue_to_reg_ready" type="logic">
+         <obj_property name="ElementShortName">write_issue_to_reg_ready</obj_property>
+         <obj_property name="ObjectShortName">write_issue_to_reg_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/reg_to_enc" type="array">
+         <obj_property name="ElementShortName">reg_to_enc</obj_property>
+         <obj_property name="ObjectShortName">reg_to_enc</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/reg_to_enc_ready" type="logic">
+         <obj_property name="ElementShortName">reg_to_enc_ready</obj_property>
+         <obj_property name="ObjectShortName">reg_to_enc_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/enc_to_remover" type="array">
+         <obj_property name="ElementShortName">enc_to_remover</obj_property>
+         <obj_property name="ObjectShortName">enc_to_remover</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/enc_to_remover_ready" type="logic">
+         <obj_property name="ElementShortName">enc_to_remover_ready</obj_property>
+         <obj_property name="ObjectShortName">enc_to_remover_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/remover_to_write_data" type="array">
+         <obj_property name="ElementShortName">remover_to_write_data</obj_property>
+         <obj_property name="ObjectShortName">remover_to_write_data</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/remover_to_write_data_ready" type="logic">
+         <obj_property name="ElementShortName">remover_to_write_data_ready</obj_property>
+         <obj_property name="ObjectShortName">remover_to_write_data_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/data_to_responder" type="array">
+         <obj_property name="ElementShortName">data_to_responder</obj_property>
+         <obj_property name="ObjectShortName">data_to_responder</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/data_to_responder_ready" type="logic">
+         <obj_property name="ElementShortName">data_to_responder_ready</obj_property>
+         <obj_property name="ObjectShortName">data_to_responder_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_araddr" type="array">
+         <obj_property name="ElementShortName">cache_araddr[25:0]</obj_property>
+         <obj_property name="ObjectShortName">cache_araddr[25:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_ardelete" type="logic">
+         <obj_property name="ElementShortName">cache_ardelete</obj_property>
+         <obj_property name="ObjectShortName">cache_ardelete</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_arvalid" type="logic">
+         <obj_property name="ElementShortName">cache_arvalid</obj_property>
+         <obj_property name="ObjectShortName">cache_arvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_arready" type="logic">
+         <obj_property name="ElementShortName">cache_arready</obj_property>
+         <obj_property name="ObjectShortName">cache_arready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_rdata" type="array">
+         <obj_property name="ElementShortName">cache_rdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">cache_rdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_rhit" type="logic">
+         <obj_property name="ElementShortName">cache_rhit</obj_property>
+         <obj_property name="ObjectShortName">cache_rhit</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_rvalid" type="logic">
+         <obj_property name="ElementShortName">cache_rvalid</obj_property>
+         <obj_property name="ObjectShortName">cache_rvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_rready" type="logic">
+         <obj_property name="ElementShortName">cache_rready</obj_property>
+         <obj_property name="ObjectShortName">cache_rready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_waddr" type="array">
+         <obj_property name="ElementShortName">cache_waddr[25:0]</obj_property>
+         <obj_property name="ObjectShortName">cache_waddr[25:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_wdata" type="array">
+         <obj_property name="ElementShortName">cache_wdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">cache_wdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_wvalid" type="logic">
+         <obj_property name="ElementShortName">cache_wvalid</obj_property>
+         <obj_property name="ObjectShortName">cache_wvalid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/cache_wready" type="logic">
+         <obj_property name="ElementShortName">cache_wready</obj_property>
+         <obj_property name="ObjectShortName">cache_wready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/root_number" type="array">
+         <obj_property name="ElementShortName">root_number[3:0]</obj_property>
+         <obj_property name="ObjectShortName">root_number[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/root_update" type="logic">
+         <obj_property name="ElementShortName">root_update</obj_property>
+         <obj_property name="ObjectShortName">root_update</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/root_number_valid" type="logic">
+         <obj_property name="ElementShortName">root_number_valid</obj_property>
+         <obj_property name="ObjectShortName">root_number_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/root_number_ready" type="logic">
+         <obj_property name="ElementShortName">root_number_ready</obj_property>
+         <obj_property name="ObjectShortName">root_number_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/root_nonce" type="array">
+         <obj_property name="ElementShortName">root_nonce[63:0]</obj_property>
+         <obj_property name="ObjectShortName">root_nonce[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/root_next_nonce" type="array">
+         <obj_property name="ElementShortName">root_next_nonce[63:0]</obj_property>
+         <obj_property name="ObjectShortName">root_next_nonce[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/root_nonce_valid" type="logic">
+         <obj_property name="ElementShortName">root_nonce_valid</obj_property>
+         <obj_property name="ObjectShortName">root_nonce_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/root_nonce_ready" type="logic">
+         <obj_property name="ElementShortName">root_nonce_ready</obj_property>
+         <obj_property name="ObjectShortName">root_nonce_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/root_next_nonce_valid" type="logic">
+         <obj_property name="ElementShortName">root_next_nonce_valid</obj_property>
+         <obj_property name="ObjectShortName">root_next_nonce_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/root_next_nonce_ready" type="logic">
+         <obj_property name="ElementShortName">root_next_nonce_ready</obj_property>
+         <obj_property name="ObjectShortName">root_next_nonce_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_fb" type="array">
+         <obj_property name="ElementShortName">nonce_fb[63:0]</obj_property>
+         <obj_property name="ObjectShortName">nonce_fb[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_fb_reg" type="array">
+         <obj_property name="ElementShortName">nonce_fb_reg[63:0]</obj_property>
+         <obj_property name="ObjectShortName">nonce_fb_reg[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_update" type="array">
+         <obj_property name="ElementShortName">nonce_update[63:0]</obj_property>
+         <obj_property name="ObjectShortName">nonce_update[63:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_address" type="array">
+         <obj_property name="ElementShortName">nonce_address[31:0]</obj_property>
+         <obj_property name="ObjectShortName">nonce_address[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_update_address" type="array">
+         <obj_property name="ElementShortName">nonce_update_address[31:0]</obj_property>
+         <obj_property name="ObjectShortName">nonce_update_address[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_is_read" type="logic">
+         <obj_property name="ElementShortName">nonce_is_read</obj_property>
+         <obj_property name="ObjectShortName">nonce_is_read</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_update_cache_writer_valid" type="logic">
+         <obj_property name="ElementShortName">nonce_update_cache_writer_valid</obj_property>
+         <obj_property name="ObjectShortName">nonce_update_cache_writer_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_cache_writer_valid" type="logic">
+         <obj_property name="ElementShortName">nonce_cache_writer_valid</obj_property>
+         <obj_property name="ObjectShortName">nonce_cache_writer_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_update_cache_writer_ready" type="logic">
+         <obj_property name="ElementShortName">nonce_update_cache_writer_ready</obj_property>
+         <obj_property name="ObjectShortName">nonce_update_cache_writer_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_cache_writer_ready" type="logic">
+         <obj_property name="ElementShortName">nonce_cache_writer_ready</obj_property>
+         <obj_property name="ObjectShortName">nonce_cache_writer_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_fb_reg_valid" type="logic">
+         <obj_property name="ElementShortName">nonce_fb_reg_valid</obj_property>
+         <obj_property name="ObjectShortName">nonce_fb_reg_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_update_valid" type="logic">
+         <obj_property name="ElementShortName">nonce_update_valid</obj_property>
+         <obj_property name="ObjectShortName">nonce_update_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/to_fb_reg_valid" type="logic">
+         <obj_property name="ElementShortName">to_fb_reg_valid</obj_property>
+         <obj_property name="ObjectShortName">to_fb_reg_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/to_update_valid" type="logic">
+         <obj_property name="ElementShortName">to_update_valid</obj_property>
+         <obj_property name="ObjectShortName">to_update_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_fb_reg_ready" type="logic">
+         <obj_property name="ElementShortName">nonce_fb_reg_ready</obj_property>
+         <obj_property name="ObjectShortName">nonce_fb_reg_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/nonce_update_ready" type="logic">
+         <obj_property name="ElementShortName">nonce_update_ready</obj_property>
+         <obj_property name="ObjectShortName">nonce_update_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/to_fb_reg_ready" type="logic">
+         <obj_property name="ElementShortName">to_fb_reg_ready</obj_property>
+         <obj_property name="ObjectShortName">to_fb_reg_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/to_update_ready" type="logic">
+         <obj_property name="ElementShortName">to_update_ready</obj_property>
+         <obj_property name="ObjectShortName">to_update_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/release_lock" type="logic">
+         <obj_property name="ElementShortName">release_lock</obj_property>
+         <obj_property name="ObjectShortName">release_lock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/release_lock_ready" type="logic">
+         <obj_property name="ElementShortName">release_lock_ready</obj_property>
+         <obj_property name="ObjectShortName">release_lock_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_S_AXI_TARGET_SLAVE_BASE_ADDR" type="array">
+         <obj_property name="ElementShortName">C_S_AXI_TARGET_SLAVE_BASE_ADDR[0:31]</obj_property>
+         <obj_property name="ObjectShortName">C_S_AXI_TARGET_SLAVE_BASE_ADDR[0:31]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_S_AXI_ID_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_S_AXI_ID_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_S_AXI_ID_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_S_AXI_DATA_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_S_AXI_DATA_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_S_AXI_DATA_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_S_AXI_ADDR_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_S_AXI_ADDR_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_S_AXI_ADDR_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_S_AXI_AWUSER_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_S_AXI_AWUSER_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_S_AXI_AWUSER_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_S_AXI_ARUSER_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_S_AXI_ARUSER_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_S_AXI_ARUSER_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_S_AXI_WUSER_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_S_AXI_WUSER_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_S_AXI_WUSER_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_S_AXI_RUSER_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_S_AXI_RUSER_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_S_AXI_RUSER_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_S_AXI_BUSER_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_S_AXI_BUSER_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_S_AXI_BUSER_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_M_AXI_BURST_LEN" type="other">
+         <obj_property name="ElementShortName">C_M_AXI_BURST_LEN</obj_property>
+         <obj_property name="ObjectShortName">C_M_AXI_BURST_LEN</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_M_AXI_ID_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_M_AXI_ID_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_M_AXI_ID_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_M_AXI_ADDR_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_M_AXI_ADDR_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_M_AXI_ADDR_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_M_AXI_DATA_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_M_AXI_DATA_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_M_AXI_DATA_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_M_AXI_AWUSER_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_M_AXI_AWUSER_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_M_AXI_AWUSER_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_M_AXI_ARUSER_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_M_AXI_ARUSER_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_M_AXI_ARUSER_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_M_AXI_WUSER_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_M_AXI_WUSER_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_M_AXI_WUSER_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_M_AXI_RUSER_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_M_AXI_RUSER_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_M_AXI_RUSER_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/C_M_AXI_BUSER_WIDTH" type="other">
+         <obj_property name="ElementShortName">C_M_AXI_BUSER_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">C_M_AXI_BUSER_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/DATA_BLOCK_SIZE" type="other">
+         <obj_property name="ElementShortName">DATA_BLOCK_SIZE</obj_property>
+         <obj_property name="ObjectShortName">DATA_BLOCK_SIZE</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/DATA_MEMORY_SIZE" type="other">
+         <obj_property name="ElementShortName">DATA_MEMORY_SIZE</obj_property>
+         <obj_property name="ObjectShortName">DATA_MEMORY_SIZE</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/TREE_ARITY" type="other">
+         <obj_property name="ElementShortName">TREE_ARITY</obj_property>
+         <obj_property name="ObjectShortName">TREE_ARITY</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/TREE_ROOTS" type="other">
+         <obj_property name="ElementShortName">TREE_ROOTS</obj_property>
+         <obj_property name="ObjectShortName">TREE_ROOTS</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/TREE_NODE_CACHE_SIZE" type="other">
+         <obj_property name="ElementShortName">TREE_NODE_CACHE_SIZE</obj_property>
+         <obj_property name="ObjectShortName">TREE_NODE_CACHE_SIZE</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/METADATA" type="other">
+         <obj_property name="ElementShortName">METADATA</obj_property>
+         <obj_property name="ObjectShortName">METADATA</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/CACHE_ADDR_WIDTH" type="other">
+         <obj_property name="ElementShortName">CACHE_ADDR_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">CACHE_ADDR_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/CACHE_DATA_WIDTH" type="other">
+         <obj_property name="ElementShortName">CACHE_DATA_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">CACHE_DATA_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/ROOT_NUMBER_WIDTH" type="other">
+         <obj_property name="ElementShortName">ROOT_NUMBER_WIDTH</obj_property>
+         <obj_property name="ObjectShortName">ROOT_NUMBER_WIDTH</obj_property>
+      </wvobject>
+      <wvobject fp_name="/testbench/top/memsec/TREE_START_ADDRESS" type="array">
+         <obj_property name="ElementShortName">TREE_START_ADDRESS[31:0]</obj_property>
+         <obj_property name="ObjectShortName">TREE_START_ADDRESS[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/testbench/top/memsec/req_mod_read/s_axi_aaddr" type="array">
+      <obj_property name="ElementShortName">s_axi_aaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axi_aaddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/top/memsec/req_mod_read/s_axi_avalid" type="logic">
+      <obj_property name="ElementShortName">s_axi_avalid</obj_property>
+      <obj_property name="ObjectShortName">s_axi_avalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/top/memsec/req_mod_read/AxiAddressxDN" type="array">
+      <obj_property name="ElementShortName">AxiAddressxDN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AxiAddressxDN[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/top/memsec/req_mod_read/AxiAddressxDP" type="array">
+      <obj_property name="ElementShortName">AxiAddressxDP[31:0]</obj_property>
+      <obj_property name="ObjectShortName">AxiAddressxDP[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/top/memsec/req_mod_read/m_request" type="array">
+      <obj_property name="ElementShortName">m_request</obj_property>
+      <obj_property name="ObjectShortName">m_request</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/top/memsec/scheduler/m_request" type="array">
+      <obj_property name="ElementShortName">m_request</obj_property>
+      <obj_property name="ObjectShortName">m_request</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/top/memsec/request_splitter/m_request" type="array">
+      <obj_property name="ElementShortName">m_request</obj_property>
+      <obj_property name="ObjectShortName">m_request</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/top/memsec/tree_generator/s_request" type="array">
+      <obj_property name="ElementShortName">s_request</obj_property>
+      <obj_property name="ObjectShortName">s_request</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/top/memsec/tree_generator/m_request" type="array">
+      <obj_property name="ElementShortName">m_request</obj_property>
+      <obj_property name="ObjectShortName">m_request</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
 </wave_config>

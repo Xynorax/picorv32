@@ -660,7 +660,8 @@ begin
   decryption : entity work.stream_ascon
     generic map (
       DATA_ALIGNMENT => DATA_BLOCK_SIZE,
-      TREE_ALIGNMENT => TREE_ARITY*8
+      TREE_ALIGNMENT => TREE_ARITY*8,
+      BYPASS_CRYPTO  => true
       )
     port map (
       clk    => s_axi_aclk,
@@ -677,6 +678,9 @@ begin
       );
 
   zero_initializer : entity work.stream_request_zero_initializer
+    generic map (
+      CLEAR_WHEN_ZERO => false
+      )
     port map (
       clk    => s_axi_aclk,
       resetn => s_axi_aresetn,
@@ -1004,7 +1008,8 @@ begin
   encryption : entity work.stream_ascon
     generic map (
       DATA_ALIGNMENT => DATA_BLOCK_SIZE,
-      TREE_ALIGNMENT => TREE_ARITY*8
+      TREE_ALIGNMENT => TREE_ARITY*8,
+      BYPASS_CRYPTO  => true
       )
     port map (
       clk    => s_axi_aclk,

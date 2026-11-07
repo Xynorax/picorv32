@@ -135,7 +135,9 @@ begin
     vSize                           := shift_left((vSize'left downto 1              => '0') & '1', to_integer(unsigned(s_request.size)));
     vTmp                            := s_request.address(ADDRESS_WIDTH - 1 downto 2) & (s_request.address(1 downto 0) and ASIZE_MASKING_LUT(to_integer(unsigned(s_request.size))));
     vStartAddress                   := unsigned(vTmp);
-    assert(unsigned(s_request.size) <= 2);
+    if not is_x(s_request.size) then
+      assert(unsigned(s_request.size) <= 2);
+    end if;
     vTmp                            := (ADDRESS_WIDTH-1 downto s_request.len'length => '0') & s_request.len;
     vEndAddress                     := vStartAddress + (unsigned(vTmp) sll to_integer(unsigned(s_request.size)));
     start_address                   <= vStartAddress;

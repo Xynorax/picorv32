@@ -105,6 +105,7 @@ synth.v: picorv32.v scripts/yosys/synth_sim.ys
 firmware/firmware.hex: firmware/firmware.bin firmware/makehex.py
 	$(PYTHON) firmware/makehex.py $< 32768 > $@
 	$(PYTHON) firmware/makehexcoe.py $<
+	$(VIVADO) -mode batch -source scripts/firmware_encryption.tcl
 	$(VIVADO) -mode batch -source scripts/regen_bram.tcl
 	
 firmware/firmware.bin: firmware/firmware.elf

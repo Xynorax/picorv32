@@ -32,7 +32,8 @@ entity stream_ascon is
   generic(
     DATA_ALIGNMENT  : integer := 64;
     TREE_ALIGNMENT  : integer := 32;
-    OUTPUT_REGISTER : boolean := true
+    OUTPUT_REGISTER : boolean := true;
+    BYPASS_CRYPTO   : boolean := false
     );
   port(
     clk    : in std_logic;
@@ -194,7 +195,11 @@ begin
     AsconEncryptxS         <= '0';
 
     enc_block_ready <= '0';
-    dec_block       <= change_endianess(AsconDataOutxD);
+    if BYPASS_CRYPTO then
+      dec_block <= AsconDataInxD;
+    else
+      dec_block <= change_endianess(AsconDataOutxD);
+    end if;
     dec_block_valid <= '0';
 
     vLastBlock := '0';
@@ -202,7 +207,11 @@ begin
       vLastBlock := '1';
     end if;
 
-    AuthenticationErrorxS <= s_request.error;
+    if BYPASS_CRYPTO then
+      AuthenticationErrorxS <= '0';
+    else
+      AuthenticationErrorxS <= s_request.error;
+    end if;
 
     -- State Machine
     if (AsconStatexDP = ASCON_IDLE) then
@@ -271,7 +280,7 @@ begin
           enc_block_ready <= '1';
           AsconStatexDN   <= ASCON_IDLE;
         end if;
-        if change_endianess(AsconTagxD(63 downto 0)) /= enc_block and DecryptxS = '1' then
+        if DecryptxS = '1' and not(BYPASS_CRYPTO) and change_endianess(AsconTagxD(63 downto 0)) /= enc_block then
           AuthenticationErrorxS <= '1';
         end if;
       end if;

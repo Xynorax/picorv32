@@ -29,6 +29,9 @@ use work.memsec_functions.all;
 --! Using a zero nonce to identify uninitialized memory permits to lazily
 --! bootstrap the AE modes.
 entity stream_request_zero_initializer is
+  generic(
+    CLEAR_WHEN_ZERO : boolean := true
+    );
   port(
     clk    : in std_logic;
     resetn : in std_logic;
@@ -82,8 +85,10 @@ begin
       end if;
 
       if inRequestxDP = '1' and initRequestxDP = '1' then
-        m_request.data  <= (others => '0');
-        m_request.error <= '0';
+        if CLEAR_WHEN_ZERO then
+          m_request.data  <= (others => '0');
+          m_request.error <= '0';
+        end if;
       end if;
     end if;
   end process comb;

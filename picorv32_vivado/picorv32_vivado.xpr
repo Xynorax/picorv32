@@ -60,20 +60,20 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="zc702"/>
-    <Option Name="WTXSimLaunchSim" Val="286"/>
+    <Option Name="WTXSimLaunchSim" Val="311"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="19"/>
-    <Option Name="WTModelSimExportSim" Val="19"/>
-    <Option Name="WTQuestaExportSim" Val="19"/>
+    <Option Name="WTXSimExportSim" Val="21"/>
+    <Option Name="WTModelSimExportSim" Val="21"/>
+    <Option Name="WTQuestaExportSim" Val="21"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="19"/>
-    <Option Name="WTRivieraExportSim" Val="19"/>
-    <Option Name="WTActivehdlExportSim" Val="19"/>
+    <Option Name="WTVcsExportSim" Val="21"/>
+    <Option Name="WTRivieraExportSim" Val="21"/>
+    <Option Name="WTActivehdlExportSim" Val="21"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -224,6 +224,294 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/../memsec_hdl/memsec_config.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/memsec_pkg.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/util/register_stage.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/ascon/ascon_fast_core.vhdl">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/memsec_functions.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/util/deserialization.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/axi/axi_deserialization.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/axi/cpu_read_responder.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/axi/cpu_request_modifier.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/stream_register_stage.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/stream_multi_register_stage.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/util/ready_synchronizer.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/stream_ready_synchronizer.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/request_modification/stream_request_extractor.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/stream_data_modifier.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/axi/cpu_write_data.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/util/fifo.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/axi/memory_read_fetcher.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/axi/memory_read_issuer.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/axi/memory_to_cpu_write_responder.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/util/serialization.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/axi/memory_write_data.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/axi/memory_write_issuer.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/stream_scheduler.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/request_modification/stream_request_splitter.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/request_modification/stream_crypto_request_modifier.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/util/pipeline_guard.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/stream_register_stage_fifo.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/stream_data_block_filter.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/stream_axi_wrap_burst_cache.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/crypto/stream_ascon.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/stream_request_zero_initializer.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/request_modification/stream_tree_request_generator.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/metadata/node_cache_read_issuer.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/util/rate_converter.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/metadata/node_cache_read_fetcher.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/util/xilinx_TDP_RAM.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/util/xilinx_TDP_RAM_synchronized.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/metadata/secure_root.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/metadata/stream_metadata_injector.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/stream_data_filter_to_stdlogic.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/metadata/nonce_increment.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/metadata/stream_treedata_modifier.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/metadata/stream_metadata_modifier.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/metadata/node_cache_writer.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/stream_beat_remover.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/metadata/node_cache.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/top/memsec_tectree_ascon.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../src/picorv32_wrapper.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -366,6 +654,292 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/../firmware/firmware.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/prince.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/qarma.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/xts_tweak_generator.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/xts_tweak_mul.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/aes/aes128_hs.vhdl">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/ascon/ascon_mac.vhdl">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/keccak/keccak_package.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/keccak/keccak_parallel.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/keccak/keccak_parallel_control.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/keccak/keccak_parallel_datapath.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/keccak/keccak_register.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/keccak/keccak_round_counter.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/keccak/keccak_round_iota.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/keccak/keccak_round_parallel.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/keccak/keccak_round_parallel_chi.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/keccak/keccak_round_parallel_pi.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/keccak/keccak_round_parallel_rho.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/keccak/keccak_round_parallel_theta.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/crypto/keccak/keccak_state.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/metadata/key_updater.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/metadata/stream_nonce_incrementer.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/stream_fifo.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/crypto/stream_aes_cbc_decrypt.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/crypto/stream_aes_cbc_encrypt.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/crypto/stream_aes_ecb.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/crypto/stream_aes_xts.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/crypto/stream_lrae_ascon_prince_delay.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/crypto/stream_lrae_ascon_prince_ecb.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/crypto/stream_prince_cbc_decrypt.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/crypto/stream_prince_cbc_encrypt.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/crypto/stream_prince_ecb.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/stream/crypto/stream_prince_xts.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/util/data_dispatcher.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/util/prng.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/util/register_stage_fifo.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/framework/util/valid_dispatcher.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/top/memsec.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/top/memsec_ascon.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/top/memsec_block_encryption.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../memsec_hdl/top/memsec_meas.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../firmware/firmware_encrypted.coe">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -553,9 +1127,7 @@
   <Runs Version="1" Minor="22">
     <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg484-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" IncrementalCheckpoint="$PSRCDIR/utils_1/imports/synth_1/picorv32_wrapper.dcp" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -565,51 +1137,41 @@
     </Run>
     <Run Id="synth_1_copy_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg484-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" IncrementalCheckpoint="$PSRCDIR/utils_1/imports/synth_1/picorv32_wrapper.dcp" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1/synth_1_copy_1" AutoRQSDir="$PSRCDIR/utils_1/imports/synth_1_copy_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
         <Step Id="synth_design"/>
       </Strategy>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024" CtrlBit="true">
-        <ReportConfig DisplayName="synthesis_report" Name="synth_1_copy_1_synth_synthesis_report_0" Spec="" RunStep="synth_design">
+        <ReportConfig DisplayName="synthesis_report" Name="synth_1_copy_1_synth_synthesis_report_0" Spec="" RunStep="synth_design" ReportFile="picorv32_wrapper.vds">
           <ReportConfigOption Name="dummy_option" Type="string"/>
         </ReportConfig>
-        <ReportConfig DisplayName="Utilization - Synth Design" Name="synth_1_copy_1_synth_report_utilization_0" Spec="report_utilization" RunStep="synth_design" Version="1" Minor="0">
+        <ReportConfig DisplayName="Utilization - Synth Design" Name="synth_1_copy_1_synth_report_utilization_0" Spec="report_utilization" RunStep="synth_design" ReportFile="picorv32_wrapper_utilization_synth.rpt" Version="1" Minor="0">
           <ReportConfigOption Name="dummy_option" Type="string"/>
           <ReportConfigOutputOption Name="pb" Type="string" Value=""/>
         </ReportConfig>
       </ReportStrategy>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles>
-        <RQSFilePath/>
-      </RQSFiles>
+      <RQSFiles/>
     </Run>
     <Run Id="synth_1_copy_2" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z020clg484-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" IncrementalCheckpoint="$PSRCDIR/utils_1/imports/synth_1/picorv32_wrapper.dcp" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1/synth_1_copy_2" AutoRQSDir="$PSRCDIR/utils_1/imports/synth_1_copy_2" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
         <Step Id="synth_design"/>
       </Strategy>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2024" CtrlBit="true">
-        <ReportConfig DisplayName="synthesis_report" Name="synth_1_copy_2_synth_synthesis_report_0" Spec="" RunStep="synth_design">
+        <ReportConfig DisplayName="synthesis_report" Name="synth_1_copy_2_synth_synthesis_report_0" Spec="" RunStep="synth_design" ReportFile="picorv32_wrapper.vds">
           <ReportConfigOption Name="dummy_option" Type="string"/>
         </ReportConfig>
-        <ReportConfig DisplayName="Utilization - Synth Design" Name="synth_1_copy_2_synth_report_utilization_0" Spec="report_utilization" RunStep="synth_design" Version="1" Minor="0">
+        <ReportConfig DisplayName="Utilization - Synth Design" Name="synth_1_copy_2_synth_report_utilization_0" Spec="report_utilization" RunStep="synth_design" ReportFile="picorv32_wrapper_utilization_synth.rpt" Version="1" Minor="0">
           <ReportConfigOption Name="dummy_option" Type="string"/>
           <ReportConfigOutputOption Name="pb" Type="string" Value=""/>
         </ReportConfig>
       </ReportStrategy>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles>
-        <RQSFilePath/>
-      </RQSFiles>
+      <RQSFiles/>
     </Run>
     <Run Id="axi_bram_ctrl_1_synth_1" Type="Ft3:Synth" SrcSet="axi_bram_ctrl_1" Part="xc7z020clg484-1" ConstrsSet="axi_bram_ctrl_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/axi_bram_ctrl_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/axi_bram_ctrl_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/axi_bram_ctrl_1_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -619,9 +1181,7 @@
     </Run>
     <Run Id="blk_mem_gen_0_synth_1" Type="Ft3:Synth" SrcSet="blk_mem_gen_0" Part="xc7z020clg484-1" ConstrsSet="blk_mem_gen_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/blk_mem_gen_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/blk_mem_gen_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/blk_mem_gen_0_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -631,9 +1191,7 @@
     </Run>
     <Run Id="axi_cdma_0_synth_1" Type="Ft3:Synth" SrcSet="axi_cdma_0" Part="xc7z020clg484-1" ConstrsSet="axi_cdma_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/axi_cdma_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/axi_cdma_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/axi_cdma_0_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -643,9 +1201,7 @@
     </Run>
     <Run Id="blk_mem_gen_1_synth_1" Type="Ft3:Synth" SrcSet="blk_mem_gen_1" Part="xc7z020clg484-1" ConstrsSet="blk_mem_gen_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/blk_mem_gen_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/blk_mem_gen_1_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/blk_mem_gen_1_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -655,9 +1211,7 @@
     </Run>
     <Run Id="clk_wiz_0_synth_1" Type="Ft3:Synth" SrcSet="clk_wiz_0" Part="xc7z020clg484-1" ConstrsSet="clk_wiz_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/clk_wiz_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/clk_wiz_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/clk_wiz_0_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2024"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -665,11 +1219,9 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1" LaunchOptions="-jobs 12 " AutoRQSDir="$PSRCDIR/utils_1/imports/impl_1" ParallelReportGen="true">
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1" LaunchOptions="-jobs 12 " AutoRQSDir="$PSRCDIR/utils_1/imports/impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -680,16 +1232,13 @@
         <Step Id="post_route_phys_opt_design"/>
         <Step Id="write_bitstream"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2024"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
     <Run Id="axi_bram_ctrl_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="axi_bram_ctrl_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="axi_bram_ctrl_1_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/axi_bram_ctrl_1_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/axi_bram_ctrl_1_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -706,9 +1255,7 @@
     </Run>
     <Run Id="blk_mem_gen_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="blk_mem_gen_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="blk_mem_gen_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/blk_mem_gen_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/blk_mem_gen_0_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -725,9 +1272,7 @@
     </Run>
     <Run Id="axi_cdma_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="axi_cdma_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="axi_cdma_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/axi_cdma_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/axi_cdma_0_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -744,9 +1289,7 @@
     </Run>
     <Run Id="blk_mem_gen_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="blk_mem_gen_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="blk_mem_gen_1_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/blk_mem_gen_1_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/blk_mem_gen_1_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -763,9 +1306,7 @@
     </Run>
     <Run Id="clk_wiz_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="clk_wiz_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="clk_wiz_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/clk_wiz_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/clk_wiz_0_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
