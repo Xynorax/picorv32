@@ -55,6 +55,10 @@ F7 Muxes = 66 \
 F8 muxes = 32 \
 Block RAM tiles = 8.5 (Accelerator = 7.5, Flash memory = 1)
 
+## Accelerator based results- with DMA + Memory authentication
+IRQ period increased to 65536 from 8192 cycles.
+
+Time taken: 101k cycles  
 ## Possible improvements:
 1. Double weights buffer. Allows streaming of the next set of weights during current computation.
 2. Addition of more than one accelerator and parallelizing computation.
